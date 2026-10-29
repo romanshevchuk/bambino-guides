@@ -291,7 +291,8 @@ figure.baskets .pick{color:var(--ok);font-weight:700}
 @keyframes hit{0%,55%{box-shadow:0 0 0 3px var(--accent);background:var(--accent-soft)}100%{box-shadow:0 0 0 3px transparent}}
 
 /* Owner knowledge in running text: dotted underline, the caveat shows on hover or tap */
-.tq{position:relative;text-decoration:underline dotted;text-decoration-thickness:1.5px;text-underline-offset:3px;cursor:help}
+.tq{position:relative;cursor:help;padding-bottom:1px;
+  background:linear-gradient(90deg,color-mix(in srgb,currentColor 55%,transparent) 55%,transparent 0) left bottom/5px 1.5px repeat-x}
 .tq::after{content:attr(data-tip);position:absolute;z-index:30;left:-6px;bottom:calc(100% + 8px);transform:translateX(var(--tx,0px));
   width:max-content;max-width:min(250px,70vw);padding:8px 11px;border-radius:8px;background:#121518;color:#fff;
   font-size:.8rem;font-weight:400;line-height:1.4;text-align:left;white-space:normal;box-shadow:0 8px 24px rgba(0,0,0,.25);
