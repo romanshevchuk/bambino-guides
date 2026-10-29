@@ -23,7 +23,7 @@
   --icon:#3a4047;
   --glow:#e4f1ff;
   --unlit:0 1px 1px rgba(0,0,0,.28);
-  --font-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-head:"Archivo","Arial Narrow",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){
@@ -108,13 +108,13 @@ body:not(.unpicked) .mm-hint{display:none}
 .lc-pic{border-radius:13px 13px 0 0;background:var(--pic);padding:18px 12px 10px;display:flex;flex-direction:column;align-items:center;gap:12px}
 /* Urgency tag (added by app.js): a quiet label above the title */
 .lc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.urg{flex:none;margin-top:1px;padding:2px 10px;border-radius:999px;font-size:.82rem;font-weight:700;line-height:1.4;letter-spacing:.01em;
+.urg{flex:none;margin-top:1px;padding:2px 10px;border-radius:999px;font-size:.82rem;font-weight:600;line-height:1.4;letter-spacing:.01em;
   box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 28%,transparent)}
 .lc[data-urg="now"] .urg{background:var(--stop-soft);color:var(--stop)}
 .lc[data-urg="soon"] .urg{background:var(--soon-soft);color:var(--soon)}
 .lc[data-urg="fine"] .urg{background:var(--ok-soft);color:var(--ok)}
 .lc-pic .bp{--s:1.1}
-.lc .seen{font-size:1rem;font-weight:700;color:var(--pic-fg);line-height:1.35;text-align:center;max-width:30ch}
+.lc .seen{font-size:1rem;font-weight:600;color:var(--pic-fg);line-height:1.35;text-align:center;max-width:30ch}
 .lc-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
 .lc .ok{color:var(--ok)}
 .lc-body>p{font-size:.96rem;line-height:1.5}
@@ -128,7 +128,7 @@ body:not(.unpicked) .mm-hint{display:none}
 .lc .need-line{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:4px}
 .nl{display:flex;flex-direction:column;line-height:1.3}
 .nl>span{font-size:.8rem;color:var(--muted)}
-.nl>b{font-size:.93rem}
+.nl>b{font-size:.93rem;font-weight:600}
 /* Product thumbnail: tap or hover for the big picture */
 .thumb{position:relative;flex:none;width:84px;height:56px;padding:4px;cursor:zoom-in;font:inherit;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
@@ -192,8 +192,9 @@ body:not(.unpicked) .mm-hint{display:none}
 @media (max-width:700px) and (min-width:561px){.need.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .need figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;min-width:0}
 .need .ph{border-radius:11px 11px 0 0;background:#fff;height:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px;border-bottom:1px solid var(--line)}
-.need .ph.ic{background:var(--sunk);color:var(--muted)}
-.need .ph.ic .gi{width:38px;height:38px}
+/* icon tiles sit on white like the photo tiles, so the row reads as one set */
+.need .ph.ic{color:color-mix(in srgb,var(--muted) 75%,var(--surface))}
+.need .ph.ic .gi{width:52px;height:52px}
 .need img,.vs img{max-width:100%;max-height:72px;object-fit:contain}
 .need img.strip,.vs img.strip{max-height:18px}
 .need figcaption{padding:10px 12px;display:flex;flex-direction:column;gap:2px;font-size:.95rem;line-height:1.35}
