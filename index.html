@@ -35,28 +35,18 @@
 <!-- ================= HOME ================= -->
 <section class="view" id="home">
 
-  <div class="who">
-    <h2>Which one is yours?</h2>
-    <p class="hint">Count the big round buttons on the front. The button combos differ, so this matters.</p>
-    <div class="picks">
-      <button type="button" class="pick" data-set-model="bambino">
-        <span class="bp" data-m="bambino" aria-hidden="true"></span>
-        <b>Bambino</b><span>4 buttons in a row · BES450 / SES450</span>
-      </button>
-      <button type="button" class="pick" data-set-model="plus">
-        <span class="bp" data-m="plus" aria-hidden="true"></span>
-        <b>Bambino Plus</b><span>3 buttons + 2 small milk lights · BES500 / SES500</span>
-      </button>
-    </div>
-    <p class="hint">Breville (US, Canada) and Sage (UK, Europe, Australia) are the same machines.</p>
-  </div>
-
   <div class="mm">
     <h1>What does my <button type="button" class="mm-btn" aria-expanded="false" aria-controls="mm-menu" aria-label="Change machine, currently Bambino Plus"><span class="cur-model">Bambino Plus</span></button> want?</h1>
     <div class="mm-menu" id="mm-menu" role="group" aria-label="My machine" hidden>
-      <button type="button" class="mm-opt" data-set-model="bambino"><span class="bp" data-m="bambino" aria-hidden="true"></span><b>Bambino</b><span>4 buttons in a row</span></button>
-      <button type="button" class="mm-opt" data-set-model="plus"><span class="bp" data-m="plus" aria-hidden="true"></span><b>Bambino Plus</b><span>3 buttons + milk lights</span></button>
+      <button type="button" class="mm-opt" data-set-model="bambino"><span class="bp" data-m="bambino" aria-hidden="true"></span><b>Bambino</b><span>4 buttons in a row · BES450 / SES450</span></button>
+      <button type="button" class="mm-opt" data-set-model="plus"><span class="bp" data-m="plus" aria-hidden="true"></span><b>Bambino Plus</b><span>3 buttons + 2 milk lights · BES500 / SES500</span></button>
+      <p class="mm-note">Breville (US, Canada) and Sage (UK, Europe, Australia) are the same machines.</p>
     </div>
+    <p class="mm-hint">
+      <span data-only="plus">Four buttons in a row on yours? That's the plain Bambino. <button type="button" data-set-model="bambino">Switch</button></span>
+      <span data-only="bambino">Only three big buttons on yours? That's the Plus. <button type="button" data-set-model="plus">Switch</button></span>
+      <button type="button" class="mm-ok" aria-label="Hide this note">×</button>
+    </p>
   </div>
 
   <!-- Plus lights -->

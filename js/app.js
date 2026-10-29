@@ -113,6 +113,7 @@
     route();
   }
   document.querySelectorAll('[data-set-model]').forEach(function(b){b.addEventListener('click',function(){setModel(b.dataset.setModel,true);});});
+  document.querySelector('.mm-ok').addEventListener('click',function(){setModel(model,true);});
 
   /* --- Machine menu under the heading --- */
   function openMenu(on){mmMenu.hidden=!on;mmBtn.setAttribute('aria-expanded',on);}
