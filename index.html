@@ -1,0 +1,408 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Bambino Plus Care Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: light, single theme. Diagnose (two panel cards) → two procedure columns with tick-off steps → button cheat sheet + backflush → routine → sources. */
+:root{
+  color-scheme:light;
+  --bg:#eef1f4;
+  --surface:#ffffff;
+  --fg:#16202a;
+  --muted:#56636f;
+  --line:#d5dce2;
+  --clean:#1b5fa8;
+  --clean-soft:#e5eef9;
+  --descale:#9c5600;
+  --descale-soft:#fbefdc;
+  --ok:#1d7a4b;
+  --ok-soft:#e2f3ea;
+  --warn:#a3261f;
+  --warn-soft:#fbe7e5;
+  --steel-hi:#d3d8dd;
+  --steel-lo:#a4adb6;
+  --bezel:#4f555c;
+  --icon:#3a4047;
+  --glow:#ffffff;
+  --halo:rgba(80,165,255,.95);
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:16px 40px;
+}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.cols,.split{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.cols>*,.split>*{min-width:0}
+.stack{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media (max-width:860px){.cols,.split{grid-template-columns:1fr}}
+h1,h2,h3{text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:1.6rem;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.22rem;font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0}
+a{color:var(--clean)}
+:focus-visible{outline:3px solid var(--clean);outline-offset:2px;border-radius:6px}
+.meta{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);letter-spacing:.03em}
+.small{font-size:.87rem;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:6px}
+.head-row{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+nav{display:flex;flex-wrap:wrap;gap:6px}
+nav a{font-size:.84rem;font-weight:500;text-decoration:none;color:var(--fg);border:1px solid var(--line);background:var(--surface);padding:4px 11px;border-radius:999px}
+nav a:hover{border-color:var(--muted)}
+
+/* ===== Machine control panel ===== */
+.bp{
+  --s:1;
+  display:inline-flex;align-items:flex-start;gap:calc(13px*var(--s));
+  padding:calc(12px*var(--s)) calc(16px*var(--s)) calc(9px*var(--s));
+  border-radius:calc(14px*var(--s));
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.18) 0 1px,rgba(0,0,0,.025) 1px 3px),
+    linear-gradient(180deg,var(--steel-hi) 0%,var(--steel-lo) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -1px 0 rgba(0,0,0,.12),0 1px 3px rgba(22,32,42,.18);
+  max-width:100%;
+}
+.bp.has-press{padding-top:calc(26px*var(--s))}
+.k{display:flex;flex-direction:column;align-items:center;gap:calc(5px*var(--s));position:relative}
+.b{
+  width:calc(44px*var(--s));height:calc(44px*var(--s));border-radius:50%;
+  border:calc(4px*var(--s)) solid var(--bezel);
+  background:conic-gradient(from 210deg,#f6f8f9,#b7bec5 18%,#eef1f3 33%,#a8b0b8 50%,#f3f5f7 66%,#b9c0c7 83%,#f6f8f9);
+  box-shadow:0 1px 1px rgba(0,0,0,.28);
+}
+.b.on{border-color:var(--glow);box-shadow:0 0 0 1px #6f8396,0 0 calc(12px*var(--s)) calc(4px*var(--s)) var(--halo)}
+.b.fa{animation:fa 1.4s steps(1) infinite}
+.b.fb{animation:fb 1.4s steps(1) infinite}
+@keyframes fa{
+  0%,49%{border-color:var(--glow);box-shadow:0 0 0 1px #6f8396,0 0 calc(12px*var(--s)) calc(4px*var(--s)) var(--halo)}
+  50%,100%{border-color:var(--bezel);box-shadow:0 1px 1px rgba(0,0,0,.28)}
+}
+@keyframes fb{
+  0%,49%{border-color:var(--bezel);box-shadow:0 1px 1px rgba(0,0,0,.28)}
+  50%,100%{border-color:var(--glow);box-shadow:0 0 0 1px #6f8396,0 0 calc(12px*var(--s)) calc(4px*var(--s)) var(--halo)}
+}
+.k svg{width:calc(24px*var(--s));height:calc(16px*var(--s));color:var(--icon)}
+.k.press::before{
+  content:attr(data-hold);position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);
+  white-space:nowrap;font-family:var(--font-mono);font-weight:600;font-size:9px;letter-spacing:.04em;
+  background:var(--fg);color:#fff;padding:1px 5px;border-radius:4px;
+}
+.side{display:flex;flex-direction:column;gap:calc(6px*var(--s));margin-left:calc(2px*var(--s));padding-top:calc(1px*var(--s))}
+.srow{display:flex;align-items:center;gap:calc(6px*var(--s))}
+.slot{width:calc(6px*var(--s));height:calc(19px*var(--s));border-radius:99px;background:#1e2226;box-shadow:inset 0 1px 2px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.7)}
+.slot.red{background:linear-gradient(180deg,#1e2226 0 30%,#e2342c 30% 72%,#1e2226 72%)}
+.b.sm{width:calc(24px*var(--s));height:calc(24px*var(--s));border-width:calc(2px*var(--s));border-color:#8d959d}
+.srow svg{width:calc(12px*var(--s));height:calc(16px*var(--s));color:var(--icon)}
+@media (prefers-reduced-motion: reduce){
+  .b.fa{animation:none;border-color:var(--glow);box-shadow:0 0 0 1px #8597a8,0 0 6px 2px var(--halo)}
+  .b.fb{animation:none;border-color:var(--glow);border-style:dashed}
+}
+
+/* ===== Diagnose ===== */
+.diag{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:720px){.diag{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card.clean{border-top:4px solid var(--clean)}
+.card.descale{border-top:4px solid var(--descale)}
+.tag{font-family:var(--font-mono);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.card.clean .tag{color:var(--clean)}
+.card.descale .tag{color:var(--descale)}
+.card .bp{align-self:center}
+.card ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:2px;font-size:.92rem}
+.go{align-self:flex-start;text-decoration:none;font-weight:600;font-size:.9rem;color:#fff;padding:6px 14px;border-radius:8px}
+.card.clean .go{background:var(--clean)}
+.card.descale .go{background:var(--descale)}
+.both{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;background:var(--surface);border:1px dashed var(--muted);border-radius:10px;padding:9px 14px;font-size:.92rem}
+.both b{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase}
+
+/* ===== Procedures ===== */
+section{display:flex;flex-direction:column;gap:9px;scroll-margin-top:12px;min-width:0}
+.sec-head{display:flex;flex-direction:column;gap:3px;padding-bottom:7px;border-bottom:2px solid var(--line)}
+.sec-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.prog{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.74rem;color:var(--muted)}
+.prog button{font:inherit;color:var(--clean);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.need{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:.9rem}
+.need b{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:s}
+ol.steps>li{
+  counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:7px 12px 8px 44px;position:relative;min-width:0;font-size:.93rem;line-height:1.42;
+}
+ol.steps>li::before{
+  content:counter(s);position:absolute;left:10px;top:7px;width:24px;height:24px;border-radius:50%;
+  background:var(--fg);color:#fff;font-family:var(--font-mono);font-weight:600;font-size:.8rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.tick ol.steps>li{cursor:pointer;user-select:none;transition:background .15s,border-color .15s}
+.tick ol.steps>li:hover{border-color:#aeb8c2}
+.tick ol.steps>li.done{background:var(--ok-soft);border-color:#a9d6bd;color:var(--muted)}
+.tick ol.steps>li.done::before{content:"✓";background:var(--ok)}
+ol.steps .bp{--s:.72;margin-top:6px}
+kbd{font-family:var(--font-mono);font-size:.78rem;font-weight:600;padding:0 5px;border-radius:5px;border:1px solid var(--line);background:var(--bg);white-space:nowrap;color:var(--fg)}
+.hold{font-family:var(--font-mono);font-size:.76rem;color:var(--muted)}
+.note{border-radius:10px;padding:8px 12px;font-size:.88rem;border:1px solid var(--line);display:flex;flex-direction:column;gap:1px}
+.note.warn{background:var(--warn-soft);border-color:var(--warn)}
+.note.warn b{color:var(--warn)}
+.note.info{background:var(--clean-soft);border-color:var(--clean)}
+.note.info b{color:var(--clean)}
+.note.amber{background:var(--descale-soft);border-color:var(--descale)}
+.note.amber b{color:var(--descale)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.st{font-family:var(--font-mono);font-size:.74rem;color:var(--muted);white-space:nowrap}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.9rem}
+summary{cursor:pointer;font-weight:600}
+details[open] summary{margin-bottom:6px}
+details p+p{margin-top:6px}
+footer{display:flex;flex-direction:column;gap:6px}
+footer ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:2px;font-size:.87rem}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-1" viewBox="0 0 24 16"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h9v5.5a3.5 3.5 0 0 1-3.5 3.5h-2A3.5 3.5 0 0 1 7 8.5z"/><path d="M16 4.5h1.4a1.8 1.8 0 0 1 0 3.6H16"/><path d="M4 14.5h16"/></g></symbol>
+    <symbol id="i-2" viewBox="0 0 24 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 4h7v4.5a3 3 0 0 1-3 3h-1a3 3 0 0 1-3-3z"/><path d="M8.5 5h.8a1.4 1.4 0 0 1 0 2.8h-.8"/><path d="M12.5 4h7v4.5a3 3 0 0 1-3 3h-1a3 3 0 0 1-3-3z"/><path d="M19.5 5h.8a1.4 1.4 0 0 1 0 2.8h-.8"/><path d="M1 14.5h21"/></g></symbol>
+    <symbol id="i-s" viewBox="0 0 24 16"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v7.5"/><path d="M10 8.5h4l-.6 2h-2.8z"/><path d="M9.6 12.6c-.8.8-.8 1.6 0 2.4M12 12.8v2.4M14.4 12.6c.8.8.8 1.6 0 2.4"/></g></symbol>
+    <symbol id="i-t" viewBox="0 0 12 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M5 2.5a1.5 1.5 0 0 1 3 0V10a2.8 2.8 0 1 1-3 0z"/></g></symbol>
+    <symbol id="i-j" viewBox="0 0 12 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6.5v11H2z"/><path d="M8.5 5.5h1.5v5H8.5"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+<header>
+  <div class="meta">SAGE SES500 / BREVILLE BES500 · CHECKED 29 OCT 2026</div>
+  <div class="head-row">
+    <h1>Bambino Plus Care Guide</h1>
+    <nav aria-label="Sections">
+      <a href="#lights">Which lights?</a>
+      <a href="#clean">Cleaning</a>
+      <a href="#descale">Descale</a>
+      <a href="#combos">Button combos</a>
+      <a href="#backflush">Backflush</a>
+      <a href="#routine">Routine</a>
+    </nav>
+  </div>
+</header>
+
+<section id="lights">
+  <div class="sec-head"><h2>Which lights are flashing?</h2></div>
+  <div class="diag">
+    <article class="card clean">
+      <span class="tag">Cleaning reminder</span>
+      <div class="bp" data-state="1:fa,2:fb" role="img" aria-label="1 CUP and 2 CUP rings flash white in turn; STEAM stays dark"></div>
+      <h3>1 CUP and 2 CUP flash in turn</h3>
+      <ul>
+        <li>200 shots since the last cleaning cycle.</li>
+        <li>Needs the cleaning disc + one tablet.</li>
+        <li>Not now? Press <kbd>STEAM</kbd>. It comes back at next startup.</li>
+      </ul>
+      <a class="go" href="#clean">Start cleaning cycle ↓</a>
+    </article>
+    <article class="card descale">
+      <span class="tag">Descale reminder</span>
+      <div class="bp" data-state="1:fa,2:fb,s:fa" role="img" aria-label="1 CUP and STEAM rings flash together, alternating with 2 CUP"></div>
+      <h3>1 CUP + STEAM alternate with 2 CUP</h3>
+      <ul>
+        <li>Shows for about 15 seconds at startup. Limescale build-up.</li>
+        <li>Needs descaling powder and a cooled-down machine.</li>
+        <li>Not now? Press any lit button. That only hides it.</li>
+      </ul>
+      <a class="go" href="#descale">Start descale ↓</a>
+    </article>
+  </div>
+  <div class="both"><b>Both alerts?</b><span>Descale first. Then rinse the tank and container and run the cleaning cycle with fresh water. Never reuse descaling water.</span></div>
+</section>
+
+<div class="cols">
+
+<section id="clean" class="tick" data-key="clean">
+  <div class="sec-head">
+    <div class="sec-top"><span class="tag">Reminder: 1 CUP / 2 CUP</span><span class="prog"></span></div>
+    <h2>Cleaning cycle (tablet)</h2>
+    <p class="small">Flushes coffee oils from the group head. Tap a step to tick it off.</p>
+  </div>
+  <div class="need"><b>You need</b>Cleaning disc · 1 cleaning tablet · 2 L container</div>
+  <ol class="steps">
+    <li>Put the disc in the filter basket, the tablet on the disc, and lock the portafilter in.</li>
+    <li>Empty the drip tray and put it back. Set the 2 L container under the portafilter and steam wand.</li>
+    <li>Fill the water tank to <b>MAX</b> and seat it firmly.</li>
+    <li>With the machine <b>on</b>, hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> for 5 s. <span class="hold">Both stay lit.</span>
+      <div class="bp" data-state="1:on,2:on" data-press="1:HOLD,2:HOLD"></div>
+    </li>
+    <li>Press <kbd>1 CUP</kbd> or <kbd>2 CUP</kbd> once. They flash in turn while it runs.
+      <div class="bp" data-state="1:fa,2:fb"></div>
+    </li>
+    <li>Wait for ready mode. If tablet is left over, run it again. Rinse the portafilter, disc, drip tray and container.</li>
+  </ol>
+  <div class="note warn"><b>Don't start from OFF</b><span>The same hold with the machine off resets your shot volumes.</span></div>
+  <div class="note info"><b>Clean early (no alert)</b><span>Machine off: hold <kbd>2 CUP</kbd> + <kbd>STEAM</kbd> for 5 s.</span></div>
+</section>
+
+<section id="descale" class="tick" data-key="descale">
+  <div class="sec-head">
+    <div class="sec-top"><span class="tag">Reminder: all three lights</span><span class="prog"></span></div>
+    <h2>Descale</h2>
+    <p class="small">Removes limescale from the water circuit. Uses descaling powder.</p>
+  </div>
+  <div class="need"><b>You need</b>Descaling powder · 2 L container · cooled machine</div>
+  <div class="note warn"><b>Never remove or fully empty the tank mid-cycle.</b><span>Take the water filter out first. Keep the drip tray in: hot steam can escape.</span></div>
+  <ol class="steps">
+    <li>Empty the drip tray and put it back. Set the 2 L container under the portafilter and steam wand.</li>
+    <li>Remove the water filter. Fill to the <b>DESCALE</b> line and stir in the powder.</li>
+    <li>Turn off (<kbd>1 CUP</kbd> + <kbd>STEAM</kbd>) and let it cool completely.</li>
+    <li>With it <b>off</b>, hold <kbd>1 CUP</kbd> + <kbd>STEAM</kbd> for 5 s. <span class="hold">These two light up.</span>
+      <div class="bp" data-state="1:on,s:on" data-press="1:HOLD,s:HOLD"></div>
+    </li>
+    <li>Press <kbd>1 CUP</kbd> or <kbd>STEAM</kbd> to start. They flash in turn all cycle.
+      <div class="bp" data-state="1:fa,s:fb"></div>
+    </li>
+    <li>It pauses when the solution runs out. Refill to <b>MAX</b> with plain water, empty the container, put both back.</li>
+    <li>When lit, press <kbd>1 CUP</kbd> or <kbd>STEAM</kbd> to resume the rinse.</li>
+    <li>Done when 1 CUP and STEAM flash in turn and it drops to standby.</li>
+    <li>Empty the container. Rinse and dry the drip tray and tank. Refit the water filter.</li>
+  </ol>
+  <div class="note amber"><b>How often?</b><span>No fixed interval in the manual: follow the alert. Hard water means sooner. Slow flow or weak steam are early signs.</span></div>
+</section>
+
+</div>
+
+<div class="cols">
+
+<section id="combos">
+  <div class="sec-head">
+    <span class="tag">From the manual</span>
+    <h2>Button combos</h2>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>To</th><th>Machine</th><th>Press</th></tr></thead>
+      <tbody>
+        <tr><td>Turn off</td><td class="st">on</td><td><kbd>1 CUP</kbd> + <kbd>STEAM</kbd></td></tr>
+        <tr><td>Cleaning cycle</td><td class="st">on</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 5 s, then either</td></tr>
+        <tr><td>Clean before alert</td><td class="st">off</td><td>Hold <kbd>2 CUP</kbd> + <kbd>STEAM</kbd> 5 s</td></tr>
+        <tr><td>Descale</td><td class="st">off, cool</td><td>Hold <kbd>1 CUP</kbd> + <kbd>STEAM</kbd> 5 s, then either</td></tr>
+        <tr><td>Skip clean alert</td><td class="st">on</td><td><kbd>STEAM</kbd></td></tr>
+        <tr><td>Skip descale alert</td><td class="st">on</td><td>Any lit button</td></tr>
+        <tr><td>Set shot volume</td><td class="st">on</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 2 s, then start/stop a shot</td></tr>
+        <tr><td>Reset shot volumes</td><td class="st">off</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 5 s, then either</td></tr>
+        <tr><td>Hot water</td><td class="st">on, wand up</td><td><kbd>1 CUP</kbd> + <kbd>MILK FOAM</kbd>; <kbd>1 CUP</kbd> stops</td></tr>
+        <tr><td>Purge steam wand</td><td class="st">on, wand down</td><td>Hold <kbd>STEAM</kbd> 5 s</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="backflush" class="tick" data-key="backflush">
+  <div class="sec-head">
+    <div class="sec-top"><span class="tag">Optional, after use</span><span class="prog"></span></div>
+    <h2>Clear-water backflush</h2>
+    <p class="small">No tablet. Recommended after each session to clear grounds and oils.</p>
+  </div>
+  <ol class="steps">
+    <li>Empty the drip tray.</li>
+    <li>Put the cleaning disc in the filter basket and lock the portafilter in.</li>
+    <li>Press <kbd>1 CUP</kbd> and let pressure build for about 20 s.</li>
+    <li>Stop the shot so water flows back into the drip tray.</li>
+    <li>Repeat 3 to 4 times.</li>
+  </ol>
+  <div class="note amber"><b>Timings not confirmed</b><span>Sage shows these steps only in a video. The 20 s and 3 to 4 repeats are from a secondary summary.</span></div>
+  <p class="small">Backflush, tablet cycle and descale each do a different job. None replaces another.</p>
+</section>
+
+</div>
+
+<section id="routine">
+  <div class="sec-head">
+    <span class="tag">Every day</span>
+    <h2>Routine care</h2>
+  </div>
+  <div class="split">
+    <div class="tablewrap">
+      <table>
+        <tbody>
+          <tr><td><b>Baskets &amp; portafilter</b></td><td>Rinse under hot water right after use.</td></tr>
+          <tr><td><b>Shower screen</b></td><td>Wipe with a damp cloth. Now and then run hot water through with an empty basket.</td></tr>
+          <tr><td><b>Steam wand</b></td><td>Wipe after each use and lower it so it auto-purges. Blocked tip: unscrew it, clear holes with the tool under the water tank.</td></tr>
+          <tr><td><b>Drip tray</b></td><td>Empty and wash daily or when the indicator rises. Not dishwasher safe.</td></tr>
+          <tr><td><b>Water</b></td><td>Cold tap water. Distilled or demineralised is not recommended.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <details>
+        <summary>Alert still showing after the cycle?</summary>
+        <p>Check the cycle ran to the end and that cleaning was started with the machine on. The manual gives no other fix.</p>
+        <p>Owners report unplugging for about 10 minutes sometimes clears a stuck alert (forum advice, not official).</p>
+      </details>
+      <details>
+        <summary>Milk temp / foam lights acting up?</summary>
+        <p>Lights stepping downward: the steam wand is raised. Lower it so it purges.</p>
+        <p>Both lit and flashing with STEAM off: the wand is blocked. Hold STEAM 5 s to purge, then clean the tip if needed.</p>
+      </details>
+      <details>
+        <summary>Machine stopped working mid-use?</summary>
+        <p>The thermal cut-out may have tripped. Turn off with 1 CUP + STEAM, unplug, and let it cool 30 to 60 minutes.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h3>Sources</h3>
+  <ul>
+    <li><a href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">BES500 instruction book (PDF)</a>: Functions, Care &amp; Cleaning, Troubleshooting</li>
+    <li>Sage videos: <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-cleaning-cycle">cleaning cycle</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-descale">descale</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-clear-water-backflush">clear-water backflush</a></li>
+  </ul>
+  <p class="small">Breville's web text for the cleaning cycle also mentions STEAM in the hold. This guide follows the printed manual (1 CUP + 2 CUP). If your machine ignores it, try the web version.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var ICON={'1':'i-1','2':'i-2','s':'i-s'};
+  function parse(str){var o={};(str||'').split(',').forEach(function(p){if(!p)return;var i=p.indexOf(':');o[p.slice(0,i).trim()]=p.slice(i+1).trim();});return o;}
+  document.querySelectorAll('.bp').forEach(function(el){
+    var st=parse(el.dataset.state), pr=parse(el.dataset.press), html='';
+    ['1','2','s'].forEach(function(k){
+      var cls=st[k]?(' '+st[k]):'', hold=pr[k];
+      html+='<div class="k'+(hold?' press':'')+'"'+(hold?' data-hold="'+hold+'"':'')+'><span class="b'+cls+'"></span><svg><use href="#'+ICON[k]+'"/></svg></div>';
+    });
+    html+='<div class="side"><div class="srow"><span class="slot red"></span><span class="b sm"></span><svg><use href="#i-t"/></svg></div><div class="srow"><span class="slot"></span><span class="b sm"></span><svg><use href="#i-j"/></svg></div></div>';
+    el.innerHTML=html;
+    if(Object.keys(pr).length) el.classList.add('has-press');
+  });
+
+  function load(k){try{return JSON.parse(localStorage.getItem('bp-'+k)||'[]')}catch(e){return []}}
+  function save(k,v){try{localStorage.setItem('bp-'+k,JSON.stringify(v))}catch(e){}}
+  document.querySelectorAll('section.tick').forEach(function(sec){
+    var key=sec.dataset.key, items=[].slice.call(sec.querySelectorAll('ol.steps>li')), prog=sec.querySelector('.prog');
+    var done=load(key);
+    function render(){
+      var n=0;
+      items.forEach(function(li,i){var d=done.indexOf(i)>-1;li.classList.toggle('done',d);li.setAttribute('aria-checked',d);if(d)n++;});
+      if(prog){prog.innerHTML=n+'/'+items.length+' done'+(n?' · <button type="button">Reset</button>':'');
+        var b=prog.querySelector('button'); if(b) b.onclick=function(){done=[];save(key,done);render();};}
+    }
+    items.forEach(function(li,i){
+      li.setAttribute('role','checkbox');li.tabIndex=0;
+      function t(){var p=done.indexOf(i);if(p>-1)done.splice(p,1);else done.push(i);save(key,done);render();}
+      li.addEventListener('click',t);
+      li.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();t();}});
+    });
+    render();
+  });
+})();
+</script>
+
+</body></html>
