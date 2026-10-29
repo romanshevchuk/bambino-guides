@@ -4,7 +4,7 @@
   var KEYS={plus:['1','2','s'],bambino:['1','2','w','s']};
   var ICON={'1':'i-1','2':'i-2','s':'i-s','w':'i-w'};
   var LABEL={'1':'1 CUP','2':'2 CUP','s':'STEAM','w':'WATER'};
-  var body=document.body;
+  var body=document.body, mmBtn=document.querySelector('.mm-btn'), mmMenu=document.getElementById('mm-menu');
 
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
@@ -31,15 +31,18 @@
   if(!MODELS[model]) model='plus';
   var picked=MODELS[fromUrl]||store('bp-picked')==='1';
 
-  /* --- Tick-off steps --- */
-  function loadDone(k){try{return JSON.parse(store('bp-'+k)||'[]')}catch(e){return []}}
+  /* --- Tick-off steps: ticks are forgotten after 12 h, so the next descale starts clean --- */
+  var TICK_TTL=12*3600*1000;
+  function loadDone(k){try{var o=JSON.parse(store('bp-'+k)||'null');return o&&o.d&&Date.now()-o.t<TICK_TTL?o.d:[]}catch(e){return []}}
   document.querySelectorAll('ol.steps[data-key]').forEach(function(ol){
     var key=ol.dataset.key, items=[].slice.call(ol.children), prog=document.querySelector('.prog[data-for="'+key+'"]'), done=loadDone(key);
-    function save(){store('bp-'+key,JSON.stringify(done));render();}
+    function save(){store('bp-'+key,JSON.stringify({t:Date.now(),d:done}));render();}
     function render(){
       var vis=items.filter(function(li){return !li.dataset.only||li.dataset.only===model;}), n=0;
       items.forEach(function(li,i){var d=done.indexOf(i)>-1;li.classList.toggle('done',d);li.setAttribute('aria-checked',d);});
-      vis.forEach(function(li){if(li.classList.contains('done'))n++;});
+      var next=null;
+      vis.forEach(function(li){if(li.classList.contains('done'))n++;else if(!next)next=li;});
+      items.forEach(function(li){li.classList.toggle('next',n>0&&li===next);});
       if(!prog) return;
       prog.innerHTML=n?(n===vis.length?'All done · ':n+' of '+vis.length+' · ')+'<button type="button">Reset</button>':'tap a step to tick it off';
       var b=prog.querySelector('button'); if(b) b.onclick=function(){done=[];save();};
@@ -62,10 +65,21 @@
     var prev=cur; cur=v;
     views.forEach(function(x){x.hidden=x!==v;});
     var h=v.querySelector('h1');
-    document.title=(v===home?'':h.innerText.trim()+' · ')+NAME[model]+' help';
+    document.title=v===home?'What does my '+NAME[model]+' want?':h.innerText.trim()+' · '+NAME[model];
     if(t&&t!==v){if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView();}
     else if(prev!==v) window.scrollTo(0,v===home?homeY:0);
+    keepAwake(!!v.querySelector('ol.steps'));
   }
+
+  /* --- Keep the phone screen on while following steps (a descale takes ~25 min) --- */
+  var lock=null, wantAwake=false;
+  function keepAwake(on){
+    wantAwake=on;
+    if(!('wakeLock' in navigator)) return;
+    if(on&&!lock) navigator.wakeLock.request('screen').then(function(l){lock=l;l.addEventListener('release',function(){lock=null;});}).catch(function(){});
+    else if(!on&&lock) lock.release();
+  }
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&wantAwake)keepAwake(true);});
   window.addEventListener('hashchange',route);
 
   function setModel(m,chosen){
@@ -74,18 +88,18 @@
     body.classList.toggle('unpicked',!picked);
     document.querySelectorAll('[data-set-model]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.setModel===m);});
     document.querySelectorAll('.cur-model').forEach(function(e){e.textContent=NAME[m];});
+    mmBtn.setAttribute('aria-label','Change machine, currently '+NAME[m]);
+    openMenu(false);
     document.querySelectorAll('ol.steps[data-key]').forEach(function(ol){ol._render();});
     route();
   }
   document.querySelectorAll('[data-set-model]').forEach(function(b){b.addEventListener('click',function(){setModel(b.dataset.setModel,true);});});
 
-  /* --- Problem search --- */
-  var search=document.querySelector('.search input'), faqs=[].slice.call(document.querySelectorAll('.faq details')), none=document.querySelector('.no-match');
-  search.addEventListener('input',function(){
-    var q=search.value.trim().toLowerCase(), shown=0;
-    faqs.forEach(function(d){var hit=!q||(d.dataset.k+' '+d.textContent).toLowerCase().indexOf(q)>-1;d.hidden=!hit;if(hit)shown++;if(q&&hit&&shown===1)d.open=true;});
-    none.hidden=shown>0;
-  });
+  /* --- Machine menu under the heading --- */
+  function openMenu(on){mmMenu.hidden=!on;mmBtn.setAttribute('aria-expanded',on);}
+  mmBtn.addEventListener('click',function(){openMenu(mmMenu.hidden);});
+  document.addEventListener('click',function(e){if(!mmMenu.hidden&&!e.target.closest('.mm'))openMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mmMenu.hidden){openMenu(false);mmBtn.focus();}});
 
   setModel(model);
 })();

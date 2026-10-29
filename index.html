@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Bambino Help</title>
-<meta name="description" content="Breville / Sage Bambino and Bambino Plus: what the flashing lights mean, which tablet or powder to use, and which buttons to press.">
-<meta property="og:title" content="Bambino Help">
-<meta property="og:description" content="What the flashing lights mean, which tablet or powder to use, and which buttons to press.">
+<title>What does my Bambino want?</title>
+<meta name="description" content="Breville / Sage Bambino and Bambino Plus: match the flashing lights, get the buttons to press and the tablet or powder to use.">
+<meta property="og:title" content="What does my Bambino want?">
+<meta property="og:description" content="Match the flashing lights, get the buttons to press and the tablet or powder to use.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#eef0f2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,17 +26,8 @@
     <symbol id="i-j" viewBox="0 0 12 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6.5v11H2z"/><path d="M8.5 5.5h1.5v5H8.5"/></g></symbol>
     <symbol id="g-bowl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14l-1.4 12.2A2 2 0 0 1 15.6 20H8.4a2 2 0 0 1-2-1.8z"/><path d="M6 11h12"/></g></symbol>
     <symbol id="g-cool" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M9.5 4.5L12 6l2.5-1.5M9.5 19.5L12 18l2.5 1.5"/></g></symbol>
-    <symbol id="g-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></g></symbol>
   </defs>
 </svg>
-
-<header class="bar">
-  <a class="brand" href="#home"><span class="cur-model">Bambino Plus</span> help</a>
-  <div class="seg" role="group" aria-label="My machine">
-    <button type="button" data-set-model="bambino" aria-pressed="false">Bambino</button>
-    <button type="button" data-set-model="plus" aria-pressed="true">Plus</button>
-  </div>
-</header>
 
 <main id="main">
 
@@ -59,208 +50,109 @@
     <p class="hint">Breville (US, Canada) and Sage (UK, Europe, Australia) are the same machines.</p>
   </div>
 
-  <h1 class="h-lights">Which lights are flashing?</h1>
-  <p class="hint">Find the picture that matches your machine. A glowing ring means that button is lit.</p>
+  <div class="mm">
+    <h1>What does my <button type="button" class="mm-btn" aria-expanded="false" aria-controls="mm-menu" aria-label="Change machine, currently Bambino Plus"><span class="cur-model">Bambino Plus</span></button> want?</h1>
+    <div class="mm-menu" id="mm-menu" role="group" aria-label="My machine" hidden>
+      <button type="button" class="mm-opt" data-set-model="bambino"><span class="bp" data-m="bambino" aria-hidden="true"></span><b>Bambino</b><span>4 buttons in a row</span></button>
+      <button type="button" class="mm-opt" data-set-model="plus"><span class="bp" data-m="plus" aria-hidden="true"></span><b>Bambino Plus</b><span>3 buttons + milk lights</span></button>
+    </div>
+  </div>
+  <p class="hint">Find the card that matches your machine. A glowing ring means the button is lit.</p>
 
   <!-- Plus lights -->
   <div class="lights" data-only="plus">
     <article class="lc" data-urg="soon">
-      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb" role="img" aria-label="1 CUP and 2 CUP flash in turn"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb" role="img" aria-label="1 CUP and 2 CUP flash in turn"></div><p class="seen">1 CUP and 2 CUP take turns</p></div>
       <div class="lc-body">
-        <p class="seen">1 CUP and 2 CUP take turns</p>
-        <h3>Cleaning cycle due</h3>
-        <p>Every 200 shots. Needs a cleaning tablet. Press <kbd>STEAM</kbd> to hide it for now.</p>
+        <span class="time">5 min</span>        <h3>Cleaning cycle due</h3>
+        <p class="keep"><b>You can keep making coffee.</b> Press <kbd>STEAM</kbd> to hide the light for now.</p>
+        <p class="need-line">You'll need: 1 cleaning tablet</p>
+        <a class="go" href="#clean">Run the cleaning cycle</a>
       </div>
-      <a class="go" href="#clean">Show me how</a>
     </article>
     <article class="lc" data-urg="soon">
-      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb,s:fa" role="img" aria-label="1 CUP and STEAM flash together, alternating with 2 CUP"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb,s:fa" role="img" aria-label="1 CUP and STEAM flash together, alternating with 2 CUP"></div><p class="seen">1 CUP + STEAM take turns with 2 CUP</p></div>
       <div class="lc-body">
-        <p class="seen">1 CUP + STEAM take turns with 2 CUP, for ~15 s after switching on</p>
-        <h3>Descale due</h3>
-        <p>Limescale is building up. Needs descaling powder. Any button hides it for now.</p>
+        <span class="time">25 min</span>        <h3>Descale due</h3>
+        <p class="keep"><b>You can keep making coffee.</b> Press any button to hide the light, or it goes off by itself after ~15 s.</p>
+        <p class="need-line">You'll need: 1 sachet of descaler</p>
+        <a class="go" href="#descale">Descale it</a>
       </div>
-      <a class="go" href="#descale">Show me how</a>
     </article>
     <article class="lc" data-urg="now">
-      <div class="lc-pic"><div class="bp" data-m="plus" role="img" aria-label="No buttons lit"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="plus" role="img" aria-label="No buttons lit"></div><p class="seen">Nothing lights up</p></div>
       <div class="lc-body">
-        <p class="seen">Nothing lights up</p>
         <h3>Water tank is empty</h3>
         <p>Fill it to <b>MAX</b> and push the tank down until it sits flush.</p>
       </div>
     </article>
     <article class="lc" data-urg="now">
-      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:on,2:on,s:on,t:fa,f:fb" role="img" aria-label="Milk temperature and foam lights step downward"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:on,2:on,s:on,t:fa,f:fb" role="img" aria-label="Milk temperature and foam lights step downward"></div><p class="seen">The two small milk lights step downward</p></div>
       <div class="lc-body">
-        <p class="seen">The two small milk lights step downward</p>
-        <h3>Steam wand is up</h3>
+        <h3>Steam wand is raised</h3>
         <p>Push the wand all the way down. It cleans itself once it's there.</p>
       </div>
     </article>
     <article class="lc" data-urg="now">
-      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:on,2:on,t:ff,f:ff" role="img" aria-label="Milk lights all flash, STEAM is off"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:on,2:on,t:ff,f:ff" role="img" aria-label="Milk lights all flash, STEAM is off"></div><p class="seen">Milk lights all flash, STEAM is off</p></div>
       <div class="lc-body">
-        <p class="seen">Milk lights all flash, STEAM is off</p>
         <h3>Steam wand is blocked</h3>
-        <p>Hold <kbd>STEAM</kbd> for 5 s to blow it clear.</p>
+        <p>Lower the wand, then hold <kbd>STEAM</kbd> for 5 s to blow it clear.</p>
+        <a class="go alt" href="#steam">Still blocked?</a>
       </div>
-      <a class="go" href="#fix-steam">Still blocked?</a>
     </article>
     <article class="lc" data-urg="fine">
-      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash together"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash together"></div><p class="seen">1 CUP and 2 CUP flash together</p></div>
       <div class="lc-body">
-        <p class="seen">1 CUP and 2 CUP flash together, after you held both</p>
-        <h3>Shot size setting mode</h3>
-        <p>Not a fault. Press <kbd>STEAM</kbd> to get out.</p>
+        <h3>Shot size setup is on</h3>
+        <p>Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> to leave.</p>
       </div>
-      <a class="go quiet" href="#volume">About shot size</a>
     </article>
   </div>
 
   <!-- Bambino lights -->
   <div class="lights" data-only="bambino">
     <article class="lc" data-urg="soon">
-      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="2:fa" role="img" aria-label="2 CUP flashes continuously"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="2:fa" role="img" aria-label="2 CUP flashes continuously"></div><p class="seen">2 CUP keeps flashing</p></div>
       <div class="lc-body">
-        <p class="seen">2 CUP keeps flashing</p>
-        <h3>Clean &amp; descale due</h3>
-        <p>Limescale is building up. Needs descaling powder. Any button hides it for now.</p>
+        <span class="time">25 min</span>        <h3>Clean &amp; descale due</h3>
+        <p class="keep"><b>You can keep making coffee.</b> Press any button to hide the light for now.</p>
+        <p class="need-line">You'll need: 1 sachet of descaler</p>
+        <a class="go" href="#descale">Clean &amp; descale it</a>
       </div>
-      <a class="go" href="#descale">Show me how</a>
     </article>
     <article class="lc" data-urg="now">
-      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:ff,2:ff,w:ff,s:ff" role="img" aria-label="All lights flash quickly"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:ff,2:ff,w:ff,s:ff" role="img" aria-label="All lights flash quickly"></div><p class="seen">All lights flash 6 times</p></div>
       <div class="lc-body">
-        <p class="seen">All lights flash 6 times</p>
         <h3>Water tank is empty</h3>
         <p>Fill it to <b>MAX</b> and push the tank down until it sits flush.</p>
       </div>
     </article>
     <article class="lc" data-urg="fine">
-      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP blink together"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP blink together"></div><p class="seen">1 CUP and 2 CUP blink while the wand spits water</p></div>
       <div class="lc-body">
-        <p class="seen">1 CUP and 2 CUP blink while the wand spits water</p>
         <h3>Steam wand is clearing itself</h3>
-        <p>Not a fault. It stops on its own.</p>
+        <p>Nothing to do. It stops on its own.</p>
       </div>
     </article>
     <article class="lc" data-urg="fine">
-      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash after holding both"></div></div>
+      <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash after holding both"></div><p class="seen">1 CUP and 2 CUP flash together</p></div>
       <div class="lc-body">
-        <p class="seen">1 CUP and 2 CUP flash, after you held both</p>
-        <h3>Shot size setting mode</h3>
-        <p>Not a fault. Wait 30 s or press <kbd>STEAM</kbd> to get out.</p>
+        <h3>Shot size setup is on</h3>
+        <p>Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> or wait 30 s to leave.</p>
       </div>
-      <a class="go quiet" href="#volume">About shot size</a>
     </article>
   </div>
 
   <p class="note" data-only="plus"><b>Both cleaning and descale due?</b> Descale first, rinse the tank, then run the cleaning cycle with fresh water.</p>
+  <a class="supplies-link" href="#supplies"><b>Cleaning tablet or descaler?</b><span>Which one to buy, and where each one goes</span></a>
+  <p class="hint">Don't see your pattern? Check the troubleshooting pages of the <a data-only="plus" href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">Bambino Plus manual</a><a data-only="bambino" href="https://assets.breville.com/BES450/BES450_USCM_IB_M26_LR.pdf">Bambino manual</a> (PDF), or contact Breville / Sage support.</p>
 
-  <h2 class="h-sec" id="fix">Something else wrong?</h2>
-  <label class="search"><svg aria-hidden="true"><use href="#g-search"/></svg><input type="search" placeholder="Type a word: leak, steam, sour…" aria-label="Search problems"></label>
-  <div class="faq">
-    <details data-k="no water flow pump nothing comes out loud noise">
-      <summary>No water comes out / loud pump noise</summary>
-      <div class="body"><ol>
-        <li>Tank empty or not pushed all the way down.</li>
-        <li>Grind too fine, too much coffee or pressed too hard. Try without coffee to check.</li>
-        <li>Filter basket holes blocked: clear them with the pin tool.</li>
-        <li>Limescale: <a href="#descale">descale</a>.</li>
-      </ol></div>
-    </details>
-    <details id="fix-steam" data-k="steam weak no steam wand blocked clogged">
-      <summary>Weak or no steam / wand blocked</summary>
-      <div class="body"><ol>
-        <li>Give it a few seconds to heat up.</li>
-        <li>Check the tank is full and pushed down.</li>
-        <li>Blow it clear: hold <kbd>STEAM</kbd> <span data-only="plus">5 s</span><span data-only="bambino">3 s</span>. Then unscrew the tip and clear the holes with the pin tool (stored under the water tank).</li>
-        <li>Still weak: <a href="#descale">descale</a>.</li>
-      </ol></div>
-    </details>
-    <details data-k="leak edge portafilter handle rim spray">
-      <summary>Coffee leaks around the handle</summary>
-      <div class="body"><ol>
-        <li>Turn the handle fully until it resists.</li>
-        <li>Wipe grounds off the basket rim.</li>
-        <li>Too much coffee: it pushes against the shower screen.</li>
-      </ol></div>
-    </details>
-    <details data-k="drips slow choke bitter">
-      <summary>Espresso only drips out / tastes bitter</summary>
-      <div class="body"><ol>
-        <li>Grind a bit coarser.</li>
-        <li>Use less coffee<span data-only="plus"> and trim with the Razor</span>.</li>
-        <li>Press (tamp) lighter.</li>
-      </ol></div>
-    </details>
-    <details data-k="fast watery sour weak thin">
-      <summary>Espresso runs too fast / watery / sour</summary>
-      <div class="body"><ol>
-        <li>Grind finer.</li>
-        <li>Use more coffee and tamp firmly.</li>
-        <li>Stale or pre-ground beans? Use the dual-wall basket.</li>
-      </ol></div>
-    </details>
-    <details data-k="crema none pale">
-      <summary>No crema (the golden foam on top)</summary>
-      <div class="body"><ol>
-        <li>Beans too old: use beans 5–20 days after roast, or pre-ground within a week.</li>
-        <li>Grind finer and tamp firmly.</li>
-      </ol></div>
-    </details>
-    <details data-k="cold not hot lukewarm temperature">
-      <summary>Coffee not hot enough</summary>
-      <div class="body"><p>Warm everything first: lock in the empty handle and run a shot of water into your cup, then dry the basket. <span data-only="plus">For milk, raise MILK TEMP.</span></p></div>
-    </details>
-    <details data-k="stopped dead stops working overheat thermal">
-      <summary>It's on but stopped working</summary>
-      <div class="body"><p>The overheat protection may have tripped. Turn off (<span data-only="plus"><kbd>1 CUP</kbd> + <kbd>STEAM</kbd></span><span data-only="bambino"><kbd>1 CUP</kbd> + <kbd>HOT WATER</kbd></span>), unplug and let it cool 30–60 minutes. Still dead: call Breville / Sage support.</p></div>
-    </details>
-    <details data-k="volume too much too little amount">
-      <summary>Too much or too little in the cup</summary>
-      <div class="body"><p>Adjust the grind first. Then <a href="#volume">set the shot size</a>.</p></div>
-    </details>
-    <details data-k="pulsing pumping noise sound normal">
-      <summary>Pulsing / pumping sound</summary>
-      <div class="body"><p><b>Normal.</b> The pump makes that noise while brewing and steaming.</p></div>
-    </details>
-    <details data-k="water drip tray after steam purge">
-      <summary>Water in the drip tray after steaming</summary>
-      <div class="body"><p><b>Normal.</b> The machine dumps a little water after steaming to reset its temperature. Keep the tray in and empty it often.</p></div>
-    </details>
-    <details data-k="turn off power standby switch">
-      <summary>How do I turn it off? There's no switch</summary>
-      <div class="body">
-        <p data-only="plus">Press <kbd>1 CUP</kbd> + <kbd>STEAM</kbd> together.</p>
-        <p data-only="bambino">Press <kbd>1 CUP</kbd> + <kbd>HOT WATER</kbd> together. It also goes to sleep after 10 idle minutes.</p>
-      </div>
-    </details>
-  </div>
-  <p class="hint no-match" hidden>No match. Try another word, or check the lights above.</p>
-
-  <h2 class="h-sec">Cleaning</h2>
-  <ul class="rows">
-    <li><a href="#supplies"><b>Tablet or powder? Which one to buy</b><span>Cleaning tablets vs descaler, side by side</span></a></li>
-    <li data-only="plus"><a href="#clean"><b>Cleaning cycle</b><span>Cleaning tablet · every 200 shots · 5 min</span></a></li>
-    <li><a href="#descale"><b><span data-only="plus">Descale</span><span data-only="bambino">Clean &amp; descale</span></b><span>Descaling powder · when the light asks · 25 min</span></a></li>
-    <li data-only="plus"><a href="#backflush"><b>Water backflush</b><span>Optional rinse, no tablet · 2 min</span></a></li>
-    <li><a href="#care"><b>Daily care</b><span>What to wipe and rinse, and when</span></a></li>
-  </ul>
-
-  <h2 class="h-sec">Making coffee</h2>
-  <ul class="rows">
-    <li><a href="#shot"><b>Espresso</b><span>Basket, dose, and fixing sour or bitter</span></a></li>
-    <li><a href="#volume"><b>Set the shot size</b><span>Teach 1 CUP and 2 CUP how much to pour</span></a></li>
-    <li><a href="#milk"><b>Steam milk</b><span data-only="plus">Automatic or by hand · hot water</span><span data-only="bambino">By hand · hot water</span></a></li>
-    <li><a href="#buttons"><b>All button combos</b><span>One list, worth a screenshot</span></a></li>
-  </ul>
 </section>
 
 <!-- ================= SUPPLIES ================= -->
 <section class="view" id="supplies">
-  <a class="back" href="#home">All topics</a>
+  <a class="back" href="#home">All lights</a>
   <h1>Tablet or powder?</h1>
   <p class="sum">Two different products for two different jobs. They're not interchangeable.</p>
 
@@ -292,7 +184,7 @@
 
 <!-- ================= CLEANING CYCLE (Plus) ================= -->
 <section class="view" id="clean" data-only="plus">
-  <a class="back" href="#home">All topics</a>
+  <a class="back" href="#home">All lights</a>
   <h1>Cleaning cycle</h1>
   <p class="sum">Washes old coffee oil out of the group head (where the handle locks in), using a cleaning tablet.</p>
   <div class="signal">
@@ -342,7 +234,7 @@
 
 <!-- ================= DESCALE ================= -->
 <section class="view" id="descale">
-  <a class="back" href="#home">All topics</a>
+  <a class="back" href="#home">All lights</a>
   <h1><span data-only="plus">Descale</span><span data-only="bambino">Clean &amp; descale</span></h1>
   <p class="sum">Dissolves limescale inside the machine.<span data-only="bambino"> The Bambino has no separate cleaning cycle: this one does both.</span></p>
   <div class="signal">
@@ -405,220 +297,31 @@
   </details>
 </section>
 
-<!-- ================= BACKFLUSH (Plus) ================= -->
-<section class="view" id="backflush" data-only="plus">
-  <a class="back" href="#home">All topics</a>
-  <h1>Water backflush</h1>
-  <p class="sum">A quick rinse with plain water to clear grounds and oil after a coffee session. Optional, no tablet. It doesn't replace the cleaning cycle or descaling.</p>
-
-  <h2>You need</h2>
-  <div class="need one">
-    <figure><div class="ph"><img src="img/cleaning-disk.jpg" alt="Round black rubber cleaning disc" loading="lazy"></div>
-      <figcaption><b>Cleaning disc</b><span>No tablet, just water</span></figcaption></figure>
+<!-- ================= STEAM WAND BLOCKED (Plus) ================= -->
+<section class="view" id="steam" data-only="plus">
+  <a class="back" href="#home">All lights</a>
+  <h1>Steam wand blocked</h1>
+  <p class="sum">Dried milk is clogging the tip. Usually it's because the wand wasn't pushed back down after steaming.</p>
+  <div class="signal">
+    <div class="bp" data-m="plus" data-state="1:on,2:on,t:ff,f:ff" aria-hidden="true"></div>
+    <p>The <b>milk lights all flash</b> and <b>STEAM is off</b>.</p>
   </div>
 
-  <h2>Steps <span class="prog" data-for="backflush"></span></h2>
-  <ol class="steps" data-key="backflush">
-    <li><b>Empty the drip tray.</b></li>
-    <li><b>Put the cleaning disc in the filter basket</b> and lock the handle in.</li>
-    <li><b>Press <kbd>1 CUP</kbd></b> and let pressure build for about 20 s.</li>
-    <li><b>Press <kbd>1 CUP</kbd> again</b> to stop. Water flows back into the drip tray.</li>
-    <li><b>Repeat 3 to 4 times.</b></li>
-  </ol>
-</section>
-
-<!-- ================= DAILY CARE ================= -->
-<section class="view" id="care">
-  <a class="back" href="#home">All topics</a>
-  <h1>Daily care</h1>
-  <p class="sum">The small stuff that keeps it working. Most of it takes seconds.</p>
-
-  <dl class="rhythm">
-    <dt>After every coffee</dt><dd>Knock out the used coffee puck. Rinse the basket and handle under hot water. Wipe the steam wand<span data-only="plus"> and push it down so it clears itself</span><span data-only="bambino"> and clear it (point at the drip tray, hold <kbd>STEAM</kbd> 3 s)</span>.</dd>
-    <dt>Every day</dt><dd>Empty and wash the drip tray (sooner if the red float pops up). Wipe the metal shower screen with a damp cloth. Refill with fresh cold tap water.</dd>
-    <dt>After a coffee session</dt><dd><span data-only="plus"><a href="#backflush">Water backflush</a> (optional, 2 min).</span><span data-only="bambino">Lock in the empty handle and press <kbd>2 CUP</kbd> to flush fresh water through.</span></dd>
-    <dt>If steam gets weak</dt><dd>Unscrew the steam tip and clear the holes with the pin tool stored under the water tank.</dd>
-    <dt>When a light asks</dt><dd><span data-only="plus"><a href="#clean">Cleaning cycle</a> (~200 shots) and <a href="#descale">descale</a>.</span><span data-only="bambino"><a href="#descale">Clean &amp; descale</a> when 2 CUP keeps flashing.</span></dd>
-  </dl>
-
-  <p class="note warn"><b>Nothing goes in the dishwasher.</b> Not the handle, the drip tray or any other part.</p>
-
-  <details>
-    <summary>Which water should I use?</summary>
-    <div class="body"><p>Cold tap water. Breville doesn't recommend distilled, demineralised or heavily filtered water: it can affect taste and how the machine works.</p></div>
-  </details>
-  <details>
-    <summary>Putting it away for a while</summary>
-    <div class="body"><p>Turn it off and unplug it. Empty the tank and drip tray, let it cool and dry, and store it upright with nothing on top.</p></div>
-  </details>
-</section>
-
-<!-- ================= ESPRESSO ================= -->
-<section class="view" id="shot">
-  <a class="back" href="#home">All topics</a>
-  <h1>Espresso</h1>
-  <p class="sum">Pick the right basket, then change one thing at a time. Usually that's how fine the coffee is ground.</p>
-
-  <h2>1. Pick your basket</h2>
-  <dl class="rhythm">
-    <dt>Single wall<br><span>one layer of holes</span></dt><dd>For <b>fresh beans and a proper espresso grinder</b>. Tastes best, but needs a fine, even grind. The 2-cup one comes fitted.</dd>
-    <dt>Dual wall<br><span>two layers</span></dt><dd>For <b>pre-ground or older beans</b> (past ~30 days). More forgiving, a bit less flavour.</dd>
-  </dl>
-
-  <h2>2. Make the shot <span class="prog" data-for="shot"></span></h2>
-  <ol class="steps" data-key="shot">
-    <li><b>Run a little water</b>: press <kbd>1 CUP</kbd> briefly with no handle in, to flush and warm up.</li>
-    <li><b>Add 16–19 g of coffee</b> to the 2-cup basket (8–11 g in the 1-cup).</li>
-    <li><b>Tap to level, then press it flat</b> (tamp) firmly and evenly. Same pressure every time matters more than force.</li>
-    <li data-only="plus"><b>Twist the Razor tool</b> in the basket to trim the extra coffee. Wipe the rim.</li>
-    <li data-only="bambino"><b>Wipe loose grounds off the rim</b> so it seals.</li>
-    <li><b>Lock the handle in</b>, cup on a scale if you have one. <b>Press <kbd>2 CUP</kbd></b>.</li>
-    <li><b>Watch</b>: first drops after <b>8–12 s</b>, then a flow like warm honey.</li>
-  </ol>
-
-  <h2>3. Taste and adjust</h2>
-  <table class="taste">
-    <thead><tr><th>It's…</th><th>Do this</th></tr></thead>
-    <tbody>
-      <tr><td><b>Sour, thin, runs fast</b><br><span>first drops in under 7 s</span></td><td><b>Grind finer</b><br><span>or add a bit more coffee</span></td></tr>
-      <tr><td><b>Bitter, burnt, only drips</b><br><span>barely comes out</span></td><td><b>Grind coarser</b><br><span>or use a bit less coffee</span></td></tr>
-      <tr><td><b>Sweet, balanced, golden crema</b></td><td><b>Keep it</b><br><span><a href="#volume">save the shot size</a></span></td></tr>
-    </tbody>
-  </table>
-  <p class="note"><b>Rule of thumb:</b> twice the coffee out, in 25–30 s. 18 g of coffee → ~36 g of espresso. Not from the manual, but a good target if you have a scale.</p>
-  <details>
-    <summary>Stop a shot early, or pre-infuse by hand</summary>
-    <div class="body">
-      <p>Press the same button again to stop a shot at any time.</p>
-      <p>Hold <kbd>1 CUP</kbd> or <kbd>2 CUP</kbd> to run low-pressure pre-infusion for as long as you hold. Let go to start the full shot, then press <span data-only="plus">the flashing button</span><span data-only="bambino">any button</span> to stop.</p>
-    </div>
-  </details>
-  <details>
-    <summary>Do I need a grinder?</summary>
-    <div class="body"><p>The Bambino has no grinder built in. With pre-ground coffee, use the dual-wall baskets. For single-wall baskets you need a burr grinder that can go espresso-fine. Beans taste best 5–20 days after the roast date.</p></div>
-  </details>
-</section>
-
-<!-- ================= SHOT SIZE ================= -->
-<section class="view" id="volume">
-  <a class="back" href="#home">All topics</a>
-  <h1>Set the shot size</h1>
-  <p class="sum">Teach a button how much to pour. It remembers until you change it. Out of the box: ~30 ml for 1 CUP, ~60 ml for 2 CUP.</p>
-
-  <h2>Steps <span class="prog" data-for="volume"></span></h2>
-  <ol class="steps" data-key="volume">
-    <li><b>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> for 2 s</b> with the machine on and the handle ready. Both flash.
-      <div class="bp" data-m="plus" data-only="plus" data-state="1:fa,2:fa" data-press="1:HOLD,2:HOLD"></div>
-      <div class="bp" data-m="bambino" data-only="bambino" data-state="1:fa,2:fa" data-press="1:HOLD,2:HOLD"></div>
+  <h2>Steps <span class="prog" data-for="steam"></span></h2>
+  <ol class="steps" data-key="steam">
+    <li><b>Push the wand all the way down</b> and check the water tank is full and pushed in.</li>
+    <li><b>Hold <kbd>STEAM</kbd> for 5 s</b> to blow it clear.
+      <div class="bp" data-m="plus" data-state="1:on,2:on,s:on" data-press="s:HOLD"></div>
     </li>
-    <li><b><span data-only="plus">Press</span><span data-only="bambino">Press and hold for ~3 s</span> the button you want to set</b> (<kbd>1 CUP</kbd> or <kbd>2 CUP</kbd>). The shot starts.</li>
-    <li><b>Press the same button again</b> when you have enough. That amount is saved.</li>
+    <li><b>Still flashing? Unscrew the steam tip</b> and clear the holes with the pin tool stored under the water tank. Screw it back on.</li>
+    <li><b>Still weak steam after that?</b> Limescale: <a href="#descale">descale</a>.</li>
   </ol>
-  <p class="hint" data-only="bambino">No input for 30 s, or pressing STEAM / HOT WATER, cancels without saving.</p>
-  <details>
-    <summary>Go back to the factory shot sizes</summary>
-    <div class="body">
-      <p data-only="plus">Turn off (<kbd>1 CUP</kbd> + <kbd>STEAM</kbd>). Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 5 s until lit, then press either one. The lights flash 3 times.</p>
-      <p data-only="bambino">In standby, hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> for 10 s. The lights flash 3 times.</p>
-    </div>
-  </details>
-</section>
-
-<!-- ================= MILK ================= -->
-<section class="view" id="milk">
-  <a class="back" href="#home">All topics</a>
-  <h1>Steam milk</h1>
-  <p class="sum" data-only="plus">The Plus can do it for you using the sensor under the jug. Or steam by hand like any wand.</p>
-  <p class="sum" data-only="bambino">By hand. Add a little air at the start, then spin the milk to make it silky.</p>
-
-  <div data-only="plus">
-    <h2>Automatic <span class="prog" data-for="milk-auto"></span></h2>
-    <ol class="steps" data-key="milk-auto">
-      <li><b>Fill the jug that came with it</b> with cold milk, between MIN and MAX. Auto mode only works with that jug.</li>
-      <li><b>Lift the wand, put the jug under, lower the wand fully.</b> The jug sits on the sensor and the milk covers the tip.</li>
-      <li><b>Pick MILK TEMP</b> (warm / ideal / hot) and <b>MILK FOAM</b> (low = latte, high = cappuccino).</li>
-      <li><b>Press <kbd>STEAM</kbd>.</b> It stops by itself at the right temperature.</li>
-      <li><b>Lift the wand</b>, take the jug, wipe the tip, <b>lower the wand</b>. It clears itself.</li>
-    </ol>
-    <p class="note warn"><b>Always put the wand back down after.</b> That's how it cleans itself and doesn't clog. Milk lights stepping down mean it's still up.</p>
-  </div>
-
-  <h2><span data-only="plus">By hand</span><span data-only="bambino">Steps</span> <span class="prog" data-for="milk-manual"></span></h2>
-  <ol class="steps" data-key="milk-manual">
-    <li><b>Blast the wand</b> into the drip tray for a moment to clear water.</li>
-    <li><b>Fill the jug with cold milk</b>, up to where the spout starts.</li>
-    <li><b>Tip 1–2 cm under the surface</b>, a bit to the right (3 o'clock). Press <kbd>STEAM</kbd>.</li>
-    <li><b>Lower the jug slowly</b> until you hear a soft paper-tearing hiss. That's foam being made. Short for latte, longer for cappuccino.</li>
-    <li><b>Raise the jug</b> so the tip is just under the surface and the milk spins like a whirlpool.</li>
-    <li><b>Stop when the jug is too hot to hold</b> for long (60–65 °C). Press <span data-only="plus"><kbd>STEAM</kbd></span><span data-only="bambino">any button</span>.</li>
-    <li><b>Wipe the wand.</b> <span data-only="plus">Lower it so it clears itself.</span><span data-only="bambino">Point it at the drip tray and hold <kbd>STEAM</kbd> 3 s to clear it.</span></li>
-  </ol>
-  <p class="hint" data-only="bambino">Steam keeps hissing a few seconds after you stop. That's normal: wait before pulling the jug away.</p>
-  <details>
-    <summary>Milk too hot, too thin or too bubbly?</summary>
-    <div class="body">
-      <ul>
-        <li><b>Big bubbles:</b> the tip was too high. Keep it just under the surface.</li>
-        <li><b>No foam:</b> the tip was too deep. Let it hiss a little at the start.</li>
-        <li data-only="plus"><b>Too hot in auto:</b> check the jug sits on the sensor, then lower MILK TEMP.</li>
-        <li><b>Plant milks</b> foam differently. Try "barista" versions<span data-only="plus"> and adjust FOAM</span>.</li>
-      </ul>
-    </div>
-  </details>
-  <details>
-    <summary>Hot water for an Americano or tea</summary>
-    <div class="body">
-      <p data-only="plus">Point the wand at your cup, lift it, then press <kbd>1 CUP</kbd> + <kbd>MILK FOAM</kbd>. Press <kbd>1 CUP</kbd> to stop.</p>
-      <p data-only="bambino">Point the wand at your cup and press <kbd>HOT WATER</kbd>. Press any button to stop.</p>
-    </div>
-  </details>
-</section>
-
-<!-- ================= BUTTONS ================= -->
-<section class="view" id="buttons">
-  <a class="back" href="#home">All topics</a>
-  <h1>All button combos</h1>
-  <p class="sum">For the <b class="cur-model">Bambino Plus</b>, from the official manual.</p>
-  <div class="bp big" data-m="plus" data-only="plus" aria-hidden="true"></div>
-  <div class="bp big" data-m="bambino" data-only="bambino" aria-hidden="true"></div>
-
-  <table class="combos" data-only="plus">
-    <thead><tr><th>To</th><th>Machine</th><th>Press</th></tr></thead>
-    <tbody>
-      <tr><td>Turn off</td><td>on</td><td><kbd>1 CUP</kbd> + <kbd>STEAM</kbd></td></tr>
-      <tr><td>Cleaning cycle</td><td>on</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 5 s, then either</td></tr>
-      <tr><td>Clean before it asks</td><td>off</td><td>Hold <kbd>2 CUP</kbd> + <kbd>STEAM</kbd> 5 s</td></tr>
-      <tr><td>Descale</td><td>off, cool</td><td>Hold <kbd>1 CUP</kbd> + <kbd>STEAM</kbd> 5 s, then either</td></tr>
-      <tr><td>Hide cleaning light</td><td>on</td><td><kbd>STEAM</kbd></td></tr>
-      <tr><td>Hide descale light</td><td>on</td><td>Any lit button</td></tr>
-      <tr><td>Set shot size</td><td>on</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 2 s, then start / stop a shot</td></tr>
-      <tr><td>Reset shot sizes</td><td>off</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 5 s, then either</td></tr>
-      <tr><td>Hot water</td><td>on, wand up</td><td><kbd>1 CUP</kbd> + <kbd>MILK FOAM</kbd>; <kbd>1 CUP</kbd> stops</td></tr>
-      <tr><td>Clear steam wand</td><td>on, wand down</td><td>Hold <kbd>STEAM</kbd> 5 s</td></tr>
-    </tbody>
-  </table>
-
-  <table class="combos" data-only="bambino">
-    <thead><tr><th>To</th><th>Machine</th><th>Press</th></tr></thead>
-    <tbody>
-      <tr><td>Turn off</td><td>on</td><td><kbd>1 CUP</kbd> + <kbd>HOT WATER</kbd></td></tr>
-      <tr><td>Clean &amp; descale</td><td>on</td><td>Hold <kbd>2 CUP</kbd> + <kbd>STEAM</kbd> 5 s</td></tr>
-      <tr><td>Hide descale light</td><td>on</td><td>Any button</td></tr>
-      <tr><td>Set shot size</td><td>on</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 2 s, then start / stop a shot</td></tr>
-      <tr><td>Reset shot sizes</td><td>standby</td><td>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> 10 s</td></tr>
-      <tr><td>Steam</td><td>on</td><td><kbd>STEAM</kbd>; any button stops</td></tr>
-      <tr><td>Hot water</td><td>on</td><td><kbd>HOT WATER</kbd>; any button stops</td></tr>
-      <tr><td>Clear steam wand</td><td>on</td><td>Hold <kbd>STEAM</kbd> 3 s</td></tr>
-      <tr><td>Rinse group head</td><td>on</td><td><kbd>2 CUP</kbd> with the empty handle in</td></tr>
-    </tbody>
-  </table>
 </section>
 
 </main>
 
 <footer class="foot">
-  <p><b>Words you'll see:</b> <i>portafilter</i> = the handle with the basket. <i>Group head</i> = where the handle locks in. <i>Tamp</i> = pressing the coffee flat. <i>Purge</i> = blasting the steam wand clear.</p>
-  <p><b>Sources.</b> Manuals (PDF): <a href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">Bambino Plus BES500</a> · <a href="https://assets.breville.com/BES450/BES450_USCM_IB_M26_LR.pdf">Bambino BES450</a>. Videos: <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-cleaning-cycle">Plus cleaning cycle</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-descale">Plus descale</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-clear-water-backflush">Plus backflush</a> · <a href="https://www.breville.com/en-us/my-products/producthub/bes450/cleaning-guides/how-to-perform-a-descale">Bambino descale</a>. Backflush timings come from a secondary summary of the Sage video.</p>
+  <p><b>Sources.</b> Manuals (PDF): <a href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">Bambino Plus BES500</a> · <a href="https://assets.breville.com/BES450/BES450_USCM_IB_M26_LR.pdf">Bambino BES450</a>. Videos: <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-cleaning-cycle">Plus cleaning cycle</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-descale">Plus descale</a> · <a href="https://www.breville.com/en-us/my-products/producthub/bes450/cleaning-guides/how-to-perform-a-descale">Bambino descale</a>.</p>
   <p>Unofficial fan guide, not affiliated with Breville or Sage. Checked October 2026.</p>
 </footer>
 
