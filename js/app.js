@@ -104,7 +104,7 @@
 
   /* --- Views: one topic per screen, picked by the URL hash --- */
   /* trail = views opened since home, so Back returns to where you came from (and its scroll spot) */
-  var views=[].slice.call(document.querySelectorAll('.view')), home=document.getElementById('home'), cur=null, trail=[], ypos={};
+  var views=[].slice.call(document.querySelectorAll('.view')), home=document.getElementById('home'), cur=null, trail=[], ypos={}, fwd=0;
   /* a new view can land a picture under a resting pointer; hover popups wait until it really moves */
   var px=0, py=0, ax=0, ay=0;
   document.addEventListener('mousemove',function(e){
@@ -115,8 +115,12 @@
     ax=px;ay=py;body.classList.add('still');
     var id=decodeURIComponent(location.hash.slice(1)), t=id&&document.getElementById(id), v=t&&t.closest('.view');
     if(!v||(v.dataset.only&&v.dataset.only!==model)) v=home;
-    var back=v===home||trail.indexOf(v.id)>-1, prev=cur; cur=v;
-    if(v===home) trail=[]; else if(trail.indexOf(v.id)>-1) trail.length=trail.indexOf(v.id)+1; else trail.push(v.id);
+    /* a link inside a page always goes forward, even to a page already in the trail (Cleaning cycle -> Tablet or descaler? -> Cleaning cycle);
+       the Back link and the browser's back button walk the trail */
+    var at=trail.lastIndexOf(v.id), prev=cur, back=v===home||(Date.now()-fwd>800&&at>-1); cur=v;
+    if(v===home) trail=[];
+    else if(v!==prev){if(back) trail.length=at+1; else trail.push(v.id);}
+    fwd=0;
     var bl=v.querySelector('.back');
     if(bl){var up=trail.length>1?document.getElementById(trail[trail.length-2]):home;bl.href='#'+up.id;bl.textContent=up===home?'All lights':up.querySelector('h1').innerText.trim();}
     views.forEach(function(x){x.hidden=x!==v;});
@@ -142,7 +146,10 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&wantAwake)keepAwake(true);});
   window.addEventListener('hashchange',route);
   /* save the scroll spot on click: the browser's own anchor jump runs before hashchange */
-  document.addEventListener('click',function(e){if(cur&&e.target.closest('a[href^="#"]'))ypos[cur.id]=window.scrollY;},true);
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a||!cur) return;
+    ypos[cur.id]=window.scrollY; fwd=a.classList.contains('back')?0:Date.now();
+  },true);
 
   function setModel(m,chosen){
     model=m; body.dataset.model=m; store('bp-model',m);
