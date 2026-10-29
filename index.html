@@ -8,7 +8,7 @@
 <meta property="og:title" content="What does my Bambino want?">
 <meta property="og:description" content="Match the flashing lights, get the buttons to press and the tablet or powder to use.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#eef0f2">
+<meta name="theme-color" content="#e1e5e9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
@@ -55,25 +55,28 @@
       <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb" role="img" aria-label="1 CUP and 2 CUP flash in turn"></div><p class="seen">1 CUP and 2 CUP take turns</p></div>
       <div class="lc-body">
         <h3>Cleaning cycle due</h3>
+        <p class="last" data-last="clean" hidden></p>
         <p class="keep"><b>You can keep making coffee.</b> Press <kbd>STEAM</kbd> to hide the light for now.</p>
-        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the cleaning tablet and sachet"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" data-cap="Cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" data-cap="or a powder sachet (Group Head Cleaner)" loading="lazy"></button>You'll need: 1 cleaning tablet or sachet</p>
-        <a class="go" href="#clean">Run the cleaning cycle <span class="dur">· 5 min</span></a>
+        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the cleaning tablet and sachet"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" data-cap="Cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" data-cap="or a powder sachet (Group Head Cleaner)" loading="lazy"></button><span class="nl"><span>You'll need</span><b>1 cleaning tablet or sachet</b></span></p>
+        <a class="go" href="#clean">Cleaning steps <span class="dur">· 5 min</span></a>
       </div>
     </article>
     <article class="lc" data-urg="soon">
       <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb,s:fa" role="img" aria-label="1 CUP and STEAM flash together, alternating with 2 CUP"></div><p class="seen">1 CUP + STEAM take turns with 2 CUP</p></div>
       <div class="lc-body">
         <h3>Descale due</h3>
+        <p class="last" data-last="descale-plus" hidden></p>
         <p class="keep"><b>You can keep making coffee.</b> Any button hides the light, or wait ~15&nbsp;s.</p>
-        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the descaler sachet"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></button>You'll need: 1 sachet of descaler</p>
-        <a class="go" href="#descale">Descale it <span class="dur">· 25 min</span></a>
+        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the descaler sachet"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></button><span class="nl"><span>You'll need</span><b>1 sachet of descaler</b></span></p>
+        <a class="go" href="#descale">Descaling steps <span class="dur">· 25–45 min</span></a>
       </div>
     </article>
     <article class="lc" data-urg="now">
       <div class="lc-pic"><div class="bp" data-m="plus" role="img" aria-label="No buttons lit"></div><p class="seen">Nothing lights up</p></div>
       <div class="lc-body">
         <h3>Water tank is empty</h3>
-        <p>Fill it to <b>MAX</b> and push the tank down until it sits flush.</p>
+        <p><b>Top up the water</b> and push the tank down until it sits flush.</p>
+        <p class="aside">Still dark with a full tank? It's switched off. Press any big button.</p>
       </div>
     </article>
     <article class="lc" data-urg="now">
@@ -95,7 +98,7 @@
       <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash together"></div><p class="seen">1 CUP and 2 CUP flash together</p></div>
       <div class="lc-body">
         <h3>Shot size setup is on</h3>
-        <p><b class="ok">Nothing's wrong.</b> Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> to leave.</p>
+        <p>Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> to leave.</p>
       </div>
     </article>
   </div>
@@ -106,30 +109,31 @@
       <div class="lc-pic"><div class="bp" data-m="bambino" data-state="2:fa" role="img" aria-label="2 CUP flashes continuously"></div><p class="seen">2 CUP keeps flashing</p></div>
       <div class="lc-body">
         <h3>Clean &amp; descale due</h3>
+        <p class="last" data-last="descale-bambino" hidden></p>
         <p class="keep"><b>You can keep making coffee.</b> Press any button to hide the light for now.</p>
-        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the descaler sachet"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></button>You'll need: 1 sachet of descaler</p>
-        <a class="go" href="#descale">Clean &amp; descale it <span class="dur">· 25 min</span></a>
+        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the descaler sachet"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></button><span class="nl"><span>You'll need</span><b>1 sachet of descaler</b></span></p>
+        <a class="go" href="#descale">Clean &amp; descale steps <span class="dur">· 25 min</span></a>
       </div>
     </article>
     <article class="lc" data-urg="now">
       <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:ff,2:ff,w:ff,s:ff" role="img" aria-label="All lights flash quickly"></div><p class="seen">All lights flash 6 times</p></div>
       <div class="lc-body">
         <h3>Water tank is empty</h3>
-        <p>Fill it to <b>MAX</b> and push the tank down until it sits flush.</p>
+        <p><b>Top up the water</b> and push the tank down until it sits flush.</p>
       </div>
     </article>
     <article class="lc" data-urg="fine">
       <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP blink together"></div><p class="seen">1 CUP and 2 CUP blink while the wand spits water</p></div>
       <div class="lc-body">
         <h3>Steam wand is clearing itself</h3>
-        <p><b class="ok">Nothing's wrong.</b> It stops on its own.</p>
+        <p>It stops on its own.</p>
       </div>
     </article>
     <article class="lc" data-urg="fine">
       <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash after holding both"></div><p class="seen">1 CUP and 2 CUP flash together</p></div>
       <div class="lc-body">
         <h3>Shot size setup is on</h3>
-        <p><b class="ok">Nothing's wrong.</b> Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> or wait 30 s to leave.</p>
+        <p>Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> or wait 30 s to leave.</p>
       </div>
     </article>
   </div>
@@ -142,7 +146,7 @@
 <!-- ================= SUPPLIES ================= -->
 <section class="view" id="supplies">
   <a class="back" href="#home">All lights</a>
-  <h1>Tablet or powder?</h1>
+  <h1>Cleaning tablet or descaler?</h1>
   <p class="sum">Two different products for two different jobs. They're not interchangeable.</p>
 
   <div class="vs">
@@ -169,34 +173,56 @@
   </div>
   <p class="note" data-only="bambino"><b>The Bambino only needs descaler.</b> It has no separate tablet cleaning cycle: its clean &amp; descale does both jobs.</p>
   <p class="note" data-only="plus"><b>The Plus needs both,</b> at different times. The flashing pattern tells you which: see <a href="#home">the lights</a>.</p>
+
+  <div class="faq">
+    <h2>Questions</h2>
+    <details id="brands">
+      <summary>Do I have to buy Breville / Sage ones?</summary>
+      <div class="body">
+        <p><b>No.</b> Any descaler made for espresso machines works. Breville's own sachet is made by Cafetto (it says so on the pack).</p>
+        <p data-only="plus">Same for the tablets: any espresso machine cleaning tablet of about 2&nbsp;g. Breville's come from Cino Cleano.</p>
+        <p>Don't swap in vinegar, kitchen citric acid or dishwasher tablets.</p>
+      </div>
+    </details>
+  </div>
 </section>
 
 <!-- ================= CLEANING CYCLE (Plus) ================= -->
 <section class="view" id="clean" data-only="plus">
   <a class="back" href="#home">All lights</a>
   <h1>Cleaning cycle</h1>
-  <p class="sum">Washes old coffee oil out of the group head (where the handle locks in), using a cleaning tablet.</p>
+  <p class="sum">Washes old coffee oil out of the group head (where the handle locks in), using a cleaning tablet or sachet.</p>
   <div class="signal">
     <div class="bp" data-m="plus" data-state="1:fa,2:fb" aria-hidden="true"></div>
     <p>Due when <b>1 CUP and 2 CUP take turns flashing</b>, about every 200 shots.<br>Takes <b>about 5 min</b>.</p>
   </div>
 
   <h2>You need</h2>
-  <div class="need">
+  <div class="need four">
     <figure><div class="ph zoom"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" data-cap="Cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" data-cap="or a powder sachet (Group Head Cleaner)" loading="lazy"></div>
       <figcaption><b>1 cleaning tablet or sachet</b><span>Not the descaler. <a href="#supplies">What's the difference?</a></span></figcaption></figure>
     <figure><div class="ph zoom"><img src="img/cleaning-disk.jpg" alt="Round black rubber cleaning disc" data-cap="Cleaning disc" loading="lazy"></div>
       <figcaption><b>Cleaning disc</b><span>The round rubber disc from the box</span></figcaption></figure>
+    <figure><div class="ph zoom"><img src="img/basket-single-cup.jpg" alt="Small single wall filter basket" data-cap="1 CUP single wall basket" loading="lazy"></div>
+      <figcaption><b>1 CUP basket</b><span>The small single wall one. <a href="#baskets">Which is it?</a></span></figcaption></figure>
     <figure><div class="ph ic"><svg class="gi" aria-hidden="true"><use href="#g-towel"/></svg></div>
       <figcaption><b>A towel</b><span>The drip tray can overflow</span></figcaption></figure>
   </div>
 
-  <p class="note warn"><b>The machine must be ON.</b> The same button hold while it's off resets your shot sizes instead.</p>
+  <p class="note warn"><b>The machine must be ON.</b> The same button hold while it's off resets your shot sizes instead. <a href="#reset">Did that by accident?</a></p>
 
   <h2>Steps <span class="prog" data-for="clean"></span></h2>
+  <p class="lede">A few minutes of setup. The machine does the rest.</p>
   <ol class="steps" data-key="clean">
-    <li><b>Put the cleaning disc in the filter basket</b>, the tablet (or sachet powder) on top, and lock the handle into the machine.</li>
-    <li><b>Empty the drip tray and push it all the way in.</b> Most of the dirty water squirts into it, so lay the towel under the front of the machine. The manual also puts a 2 L container on the tray, but owners say it barely catches anything.</li>
+    <li><b>Fill the handle:</b> the 1 CUP single wall basket, the rubber disc pressed into the bottom of it, then the tablet (or the sachet's powder) on top. Lock it in as if making coffee.
+      <div class="layers">
+        <figure class="zoom tap"><img src="img/handle-1-basket.jpg" data-cap="1 · The 1 CUP basket in the handle" alt="Handle with the small 1 CUP basket in it" loading="lazy"><figcaption>1 · Basket</figcaption></figure>
+        <figure class="zoom tap"><img src="img/handle-2-disc.jpg" data-cap="2 · The disc pressed into the bottom" alt="Rubber disc sitting in the bottom of the basket" loading="lazy"><figcaption>2 · Disc</figcaption></figure>
+        <figure class="zoom tap"><img src="img/handle-3-tablet.jpg" data-cap="3 · The tablet on top" alt="White tablet on top of the disc" loading="lazy"><figcaption>3 · Tablet</figcaption></figure>
+      </div>
+    </li>
+    <li><b>Empty the drip tray, push it all the way in, and lay the towel under the front.</b> With the disc in, almost no water comes out of the handle: it goes into the tray. So the 2 L container from the manual barely catches anything.
+      <p class="tip"><b>Tray filling up?</b> The cycle pauses a few times. Slide the tray out during a pause, empty it, push it back. Careful, the water is hot. <i>(Owners' tip, not from the manual.)</i></p></li>
     <li><b>Fill the water tank to MAX</b> and push it down firmly.</li>
     <li><b>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> for 5 s.</b> Both stay lit.
       <div class="bp" data-m="plus" data-state="1:on,2:on" data-press="1:HOLD,2:HOLD"></div>
@@ -206,19 +232,47 @@
     </li>
     <li><b>When the lights go back to normal, it's done.</b> Empty and rinse the drip tray, then rinse the handle and disc. Tablet still there? Run it again.</li>
   </ol>
+  <p class="fin" data-for="clean" hidden>That's it. The light will ask again in about 200 shots.</p>
 
-  <details>
-    <summary>Can I clean before the light asks?</summary>
-    <div class="body"><p>Yes. Turn the machine off (<kbd>1 CUP</kbd> + <kbd>STEAM</kbd>), then hold <kbd>2 CUP</kbd> + <kbd>STEAM</kbd> for 5 s.</p></div>
-  </details>
-  <details>
-    <summary>The light is still flashing after the cycle</summary>
-    <div class="body">
-      <p>Check the cycle ran to the end and that you started it with the machine on.</p>
-      <p>Owners report that unplugging for ~10 minutes sometimes clears a stuck alert. That's forum advice, not from the manual.</p>
-      <p>Breville's website shows STEAM in the button hold; the printed manual says <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd>. If one doesn't work, try the other.</p>
-    </div>
-  </details>
+  <div class="faq">
+    <h2>Questions</h2>
+    <details>
+      <summary>Can I clean before the light asks?</summary>
+      <div class="body"><p>Yes. Turn the machine off (<kbd>1 CUP</kbd> + <kbd>STEAM</kbd>), then hold <kbd>2 CUP</kbd> + <kbd>STEAM</kbd> for 5 s.</p></div>
+    </details>
+    <details id="baskets">
+      <summary>Which one is the 1 CUP single wall basket?</summary>
+      <div class="body">
+        <figure class="baskets"><img src="img/baskets.jpg" alt="The four baskets, upside down: small single wall, big single wall, small dual wall, big dual wall" loading="lazy">
+          <figcaption><span class="pick">1 CUP single wall</span><span>2 CUP single wall</span><span>1 CUP dual wall</span><span>2 CUP dual wall</span></figcaption></figure>
+        <p>The smaller, shallower one with holes across its whole bottom. The dual wall ones say <i>DUAL WALL</i> underneath. The disc is shaped to seal inside the small basket.</p>
+      </div>
+    </details>
+    <details id="reset">
+      <summary>Reset your shot sizes by accident?</summary>
+      <div class="body">
+        <p>They're back to the factory amounts: about 30&nbsp;ml for 1 CUP and 60&nbsp;ml for 2 CUP. To set your own again:</p>
+        <ol>
+          <li>With the machine on, hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> for 2 s. Both flash.</li>
+          <li>With coffee in the handle as usual, press <kbd>1 CUP</kbd> to start.</li>
+          <li>Press <kbd>1 CUP</kbd> again when the cup has enough. That amount is saved.</li>
+        </ol>
+        <p>Same for <kbd>2 CUP</kbd>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Lost the cleaning disc?</summary>
+      <div class="body"><p>Any <b>54&nbsp;mm</b> cleaning disc works (also sold as a blind or backflush disc). Check the size before buying: the common 58&nbsp;mm ones don't fit.</p></div>
+    </details>
+    <details>
+      <summary>The light is still flashing after the cycle</summary>
+      <div class="body">
+        <p>Check the cycle ran to the end and that you started it with the machine on.</p>
+        <p>Owners report that unplugging for ~10 minutes sometimes clears a stuck alert. That's forum advice, not from the manual.</p>
+        <p>Breville's website shows STEAM in the button hold; the printed manual says <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd>. If one doesn't work, try the other.</p>
+      </div>
+    </details>
+  </div>
 </section>
 
 <!-- ================= DESCALE ================= -->
@@ -229,7 +283,8 @@
   <div class="signal">
     <div class="bp" data-m="plus" data-only="plus" data-state="1:fa,2:fb,s:fa" aria-hidden="true"></div>
     <div class="bp" data-m="bambino" data-only="bambino" data-state="2:fa" aria-hidden="true"></div>
-    <p data-only="plus">Due when <b>1 CUP + STEAM take turns with 2 CUP</b> after switching on.<br>Takes <b>about 25 min</b>.</p>
+    <div data-only="plus"><p>Due when <b>1 CUP + STEAM take turns with 2 CUP</b> after switching&nbsp;on.</p>
+    <p>Takes <b>about 25 min</b>. It must start cold: if you just made coffee, switch it off and wait up to 20&nbsp;min.</p></div>
     <p data-only="bambino">Due when <b>2 CUP keeps flashing</b>.<br>Takes <b>about 25 min</b>.</p>
   </div>
 
@@ -240,17 +295,19 @@
     <figure><div class="ph ic"><svg class="gi" aria-hidden="true"><use href="#g-bowl"/></svg></div>
       <figcaption><b>A 2 L bowl or jug</b><span>Catches the waste water</span></figcaption></figure>
     <figure data-only="plus"><div class="ph ic"><svg class="gi" aria-hidden="true"><use href="#g-cool"/></svg></div>
-      <figcaption><b>A cold machine</b><span>Switched off and cooled down first</span></figcaption></figure>
+      <figcaption><b>A cold machine</b><span>Just made coffee? Switch off, wait up to 20 min</span></figcaption></figure>
   </div>
 
-  <p class="note warn"><b>Don't take out or fully empty the tank mid-cycle,</b> and keep the drip tray in. Hot steam can escape.</p>
+  <p class="note warn"><b>Leave the tank and drip tray in until it's done.</b> Pulling either out mid-cycle can let out hot steam.</p>
   <p class="note" data-only="plus"><b>Both cleaning and descale due?</b> Descale first, rinse the tank, then run the cleaning cycle with fresh water.</p>
 
   <h2 data-only="plus">Steps <span class="prog" data-for="descale-plus"></span></h2>
+  <p class="lede" data-only="plus">You're only needed at the start, once halfway to refill, and at the end.</p>
   <ol class="steps" data-key="descale-plus" data-only="plus">
     <li><b>Empty the drip tray</b> and put it back. Set the bowl under the group head and the steam wand.</li>
-    <li><b>Take out the water filter</b> if you use one. <b>Fill the tank to the DESCALE line</b> and stir in the powder.</li>
-    <li><b>Turn the machine off</b> (<kbd>1 CUP</kbd> + <kbd>STEAM</kbd>) and let it cool completely.</li>
+    <li><b>Take out the water filter</b> if you use one. <b>Fill the tank to the DESCALE line</b> (the 1000 mark) and stir in the powder.
+      <img class="step-ph" src="img/water-tank-descale.jpg" alt="Water tank with an arrow at the DESCALE line, marked 1000" loading="lazy"></li>
+    <li><b>Turn the machine off</b> (<kbd>1 CUP</kbd> + <kbd>STEAM</kbd>) and let it cool completely, up to 20 min if it was on. The metal around the handle should feel cool.</li>
     <li><b>Hold <kbd>1 CUP</kbd> + <kbd>STEAM</kbd> for 5 s</b> while it's off. Those two light up.
       <div class="bp" data-m="plus" data-state="1:on,s:on" data-press="1:HOLD,s:HOLD"></div>
     </li>
@@ -261,8 +318,10 @@
     <li><b>Press <kbd>1 CUP</kbd> or <kbd>STEAM</kbd></b> (whichever is lit) to rinse.</li>
     <li><b>Done when it goes to standby.</b> Empty the bowl, rinse and dry the tray and tank, put the filter back.</li>
   </ol>
+  <p class="fin" data-for="descale-plus" data-only="plus" hidden>All done. Back to coffee.</p>
 
   <h2 data-only="bambino">Steps <span class="prog" data-for="descale-bambino"></span></h2>
+  <p class="lede" data-only="bambino">You're only needed at the start, once halfway to refill, and at the end.</p>
   <ol class="steps" data-key="descale-bambino" data-only="bambino">
     <li><b>Empty the drip tray</b> and put it back.</li>
     <li><b>Fill the tank to the DESCALE line</b> and stir in the descaling powder.</li>
@@ -276,15 +335,23 @@
     </li>
     <li><b>Done when it's back to normal.</b> Empty the bowl, rinse and dry the drip tray and tank.</li>
   </ol>
+  <p class="fin" data-for="descale-bambino" data-only="bambino" hidden>All done. Back to coffee.</p>
 
-  <details>
-    <summary>How often should I descale?</summary>
-    <div class="body"><p>Follow the light: the manual gives no fixed schedule. Hard water means more often. Slow flow, weak steam or lukewarm coffee are early signs.</p></div>
-  </details>
-  <details data-only="bambino">
-    <summary>My machine doesn't react to that button combo</summary>
-    <div class="body"><p>These steps are from the current BES450 manual. Older units can differ: check the manual that came with yours, or Breville's descale video (linked at the bottom).</p></div>
-  </details>
+  <div class="faq">
+    <h2>Questions</h2>
+    <details>
+      <summary>How often should I descale?</summary>
+      <div class="body"><p>Follow the light: the manual gives no fixed schedule. Hard water means more often. Slow flow, weak steam or lukewarm coffee are early signs.</p></div>
+    </details>
+    <details>
+      <summary>Can I use vinegar or citric acid?</summary>
+      <div class="body"><p>No. <a href="https://www.breville.com/en-us/support/article/ka0QU000002WDFVYA4">Breville says</a> not to use vinegar, and to use only a descaler made for the machine. Kitchen citric acid isn't one either. Breville / Sage descaler, or another espresso machine descaler, is the safe choice.</p></div>
+    </details>
+    <details data-only="bambino">
+      <summary>My machine doesn't react to that button combo</summary>
+      <div class="body"><p>These steps are from the current BES450 manual. Older units can differ: check the manual that came with yours, or Breville's descale video (linked at the bottom).</p></div>
+    </details>
+  </div>
 </section>
 
 <!-- ================= STEAM WAND BLOCKED (Plus) ================= -->
@@ -306,12 +373,13 @@
     <li><b>Still flashing? Unscrew the steam tip</b> and clear the holes with the pin tool stored under the water tank. Screw it back on.</li>
     <li><b>Still weak steam after that?</b> Limescale: <a href="#descale">descale</a>.</li>
   </ol>
+  <p class="fin" data-for="steam" hidden>Steam's back. Pushing the wand down after each use keeps it clear.</p>
 </section>
 
 </main>
 
 <footer class="foot">
-  <p><b>Sources.</b> Manuals (PDF): <a href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">Bambino Plus BES500</a> · <a href="https://assets.breville.com/BES450/BES450_USCM_IB_M26_LR.pdf">Bambino BES450</a>. Videos: <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-cleaning-cycle">Plus cleaning cycle</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-descale">Plus descale</a> · <a href="https://www.breville.com/en-us/my-products/producthub/bes450/cleaning-guides/how-to-perform-a-descale">Bambino descale</a>.</p>
+  <p><b>Sources.</b> Manuals (PDF): <a href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">Bambino Plus BES500</a> · <a href="https://assets.breville.com/BES450/BES450_USCM_IB_M26_LR.pdf">Bambino BES450</a>. Videos: <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-cleaning-cycle">Plus cleaning cycle</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-descale">Plus descale</a> · <a href="https://www.breville.com/en-us/my-products/producthub/bes450/cleaning-guides/how-to-perform-a-descale">Bambino descale</a>. Support: <a href="https://www.breville.com/en-us/support/article/ka0QU000002WDFVYA4">Breville on descalers</a>.</p>
   <p>Unofficial fan guide, not affiliated with Breville or Sage. Checked October 2026.</p>
 </footer>
 
