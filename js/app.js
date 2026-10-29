@@ -134,7 +134,7 @@
     if(bl){var up=trail.length>1?document.getElementById(trail[trail.length-2]):home;bl.href='#'+up.id;bl.textContent=up===home?'All lights':up.querySelector('h1').innerText.trim();}
     views.forEach(function(x){x.hidden=x!==v;});
     var h=v.querySelector('h1');
-    document.title=v===home?'What does my '+NAME[model]+' want?':h.innerText.trim()+' · '+NAME[model];
+    document.title=v===home?'What does my '+NAME[model]+' want? Breville / Sage lights explained':h.innerText.trim()+' · '+NAME[model];
     if(t&&t!==v){
       if(t.tagName==='DETAILS')t.open=true;
       /* a target near the page end can't reach the top, so flash it to show where to look */
