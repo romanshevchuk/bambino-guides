@@ -25,6 +25,7 @@
     <symbol id="i-t" viewBox="0 0 12 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M5 2.5a1.5 1.5 0 0 1 3 0V10a2.8 2.8 0 1 1-3 0z"/></g></symbol>
     <symbol id="i-j" viewBox="0 0 12 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6.5v11H2z"/><path d="M8.5 5.5h1.5v5H8.5"/></g></symbol>
     <symbol id="g-bowl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14l-1.4 12.2A2 2 0 0 1 15.6 20H8.4a2 2 0 0 1-2-1.8z"/><path d="M6 11h12"/></g></symbol>
+    <symbol id="g-towel" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v14H6z"/><path d="M6 18v2h12v-2"/><path d="M6 13h12M6 15.5h12"/></g></symbol>
     <symbol id="g-cool" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M9.5 4.5L12 6l2.5-1.5M9.5 19.5L12 18l2.5 1.5"/></g></symbol>
   </defs>
 </svg>
@@ -57,26 +58,25 @@
       <button type="button" class="mm-opt" data-set-model="plus"><span class="bp" data-m="plus" aria-hidden="true"></span><b>Bambino Plus</b><span>3 buttons + milk lights</span></button>
     </div>
   </div>
-  <p class="hint">Find the card that matches your machine. A glowing ring means the button is lit.</p>
 
   <!-- Plus lights -->
   <div class="lights" data-only="plus">
     <article class="lc" data-urg="soon">
       <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb" role="img" aria-label="1 CUP and 2 CUP flash in turn"></div><p class="seen">1 CUP and 2 CUP take turns</p></div>
       <div class="lc-body">
-        <span class="time">5 min</span>        <h3>Cleaning cycle due</h3>
+        <h3>Cleaning cycle due</h3>
         <p class="keep"><b>You can keep making coffee.</b> Press <kbd>STEAM</kbd> to hide the light for now.</p>
-        <p class="need-line">You'll need: 1 cleaning tablet</p>
-        <a class="go" href="#clean">Run the cleaning cycle</a>
+        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the cleaning tablet and sachet"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" data-cap="Cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" data-cap="or a powder sachet (Group Head Cleaner)" loading="lazy"></button>You'll need: 1 cleaning tablet or sachet</p>
+        <a class="go" href="#clean">Run the cleaning cycle <span class="dur">· 5 min</span></a>
       </div>
     </article>
     <article class="lc" data-urg="soon">
       <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fb,s:fa" role="img" aria-label="1 CUP and STEAM flash together, alternating with 2 CUP"></div><p class="seen">1 CUP + STEAM take turns with 2 CUP</p></div>
       <div class="lc-body">
-        <span class="time">25 min</span>        <h3>Descale due</h3>
-        <p class="keep"><b>You can keep making coffee.</b> Press any button to hide the light, or it goes off by itself after ~15 s.</p>
-        <p class="need-line">You'll need: 1 sachet of descaler</p>
-        <a class="go" href="#descale">Descale it</a>
+        <h3>Descale due</h3>
+        <p class="keep"><b>You can keep making coffee.</b> Any button hides the light, or wait ~15&nbsp;s.</p>
+        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the descaler sachet"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></button>You'll need: 1 sachet of descaler</p>
+        <a class="go" href="#descale">Descale it <span class="dur">· 25 min</span></a>
       </div>
     </article>
     <article class="lc" data-urg="now">
@@ -105,7 +105,7 @@
       <div class="lc-pic"><div class="bp" data-m="plus" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash together"></div><p class="seen">1 CUP and 2 CUP flash together</p></div>
       <div class="lc-body">
         <h3>Shot size setup is on</h3>
-        <p>Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> to leave.</p>
+        <p><b class="ok">Nothing's wrong.</b> Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> to leave.</p>
       </div>
     </article>
   </div>
@@ -115,10 +115,10 @@
     <article class="lc" data-urg="soon">
       <div class="lc-pic"><div class="bp" data-m="bambino" data-state="2:fa" role="img" aria-label="2 CUP flashes continuously"></div><p class="seen">2 CUP keeps flashing</p></div>
       <div class="lc-body">
-        <span class="time">25 min</span>        <h3>Clean &amp; descale due</h3>
+        <h3>Clean &amp; descale due</h3>
         <p class="keep"><b>You can keep making coffee.</b> Press any button to hide the light for now.</p>
-        <p class="need-line">You'll need: 1 sachet of descaler</p>
-        <a class="go" href="#descale">Clean &amp; descale it</a>
+        <p class="need-line"><button type="button" class="thumb zoom" aria-label="Show the descaler sachet"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></button>You'll need: 1 sachet of descaler</p>
+        <a class="go" href="#descale">Clean &amp; descale it <span class="dur">· 25 min</span></a>
       </div>
     </article>
     <article class="lc" data-urg="now">
@@ -132,19 +132,18 @@
       <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP blink together"></div><p class="seen">1 CUP and 2 CUP blink while the wand spits water</p></div>
       <div class="lc-body">
         <h3>Steam wand is clearing itself</h3>
-        <p>Nothing to do. It stops on its own.</p>
+        <p><b class="ok">Nothing's wrong.</b> It stops on its own.</p>
       </div>
     </article>
     <article class="lc" data-urg="fine">
       <div class="lc-pic"><div class="bp" data-m="bambino" data-state="1:fa,2:fa" role="img" aria-label="1 CUP and 2 CUP flash after holding both"></div><p class="seen">1 CUP and 2 CUP flash together</p></div>
       <div class="lc-body">
         <h3>Shot size setup is on</h3>
-        <p>Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> or wait 30 s to leave.</p>
+        <p><b class="ok">Nothing's wrong.</b> Holding <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> starts it. Press <kbd>STEAM</kbd> or wait 30 s to leave.</p>
       </div>
     </article>
   </div>
 
-  <p class="note" data-only="plus"><b>Both cleaning and descale due?</b> Descale first, rinse the tank, then run the cleaning cycle with fresh water.</p>
   <a class="supplies-link" href="#supplies"><b>Cleaning tablet or descaler?</b><span>Which one to buy, and where each one goes</span></a>
   <p class="hint">Don't see your pattern? Check the troubleshooting pages of the <a data-only="plus" href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">Bambino Plus manual</a><a data-only="bambino" href="https://assets.breville.com/BES450/BES450_USCM_IB_M26_LR.pdf">Bambino manual</a> (PDF), or contact Breville / Sage support.</p>
 
@@ -158,7 +157,7 @@
 
   <div class="vs">
     <div class="vs-col" data-only="plus">
-      <div class="vs-ph"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" loading="lazy"></div>
+      <div class="vs-ph zoom"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" data-cap="Cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" data-cap="or a powder sachet (Group Head Cleaner)" loading="lazy"></div>
       <h2>Cleaning tablet</h2>
       <dl>
         <dt>Removes</dt><dd>Old coffee oil</dd>
@@ -168,7 +167,7 @@
       </dl>
     </div>
     <div class="vs-col">
-      <div class="vs-ph"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" loading="lazy"></div>
+      <div class="vs-ph zoom"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></div>
       <h2>Descaler</h2>
       <dl>
         <dt>Removes</dt><dd>Limescale (the chalky stuff from tap water)</dd>
@@ -194,12 +193,12 @@
 
   <h2>You need</h2>
   <div class="need">
-    <figure><div class="ph"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" loading="lazy"></div>
+    <figure><div class="ph zoom"><img src="img/cleaning-tablets-breville.jpg" alt="Box of Breville cleaning tablets" data-cap="Cleaning tablets" loading="lazy"><img class="strip" src="img/group-head-cleaner-breville.jpg" data-sage="img/group-head-cleaner-sage.webp" alt="Group Head Cleaner sachet" data-cap="or a powder sachet (Group Head Cleaner)" loading="lazy"></div>
       <figcaption><b>1 cleaning tablet or sachet</b><span>Not the descaler. <a href="#supplies">What's the difference?</a></span></figcaption></figure>
-    <figure><div class="ph"><img src="img/cleaning-disk.jpg" alt="Round black rubber cleaning disc" loading="lazy"></div>
+    <figure><div class="ph zoom"><img src="img/cleaning-disk.jpg" alt="Round black rubber cleaning disc" data-cap="Cleaning disc" loading="lazy"></div>
       <figcaption><b>Cleaning disc</b><span>The round rubber disc from the box</span></figcaption></figure>
-    <figure><div class="ph ic"><svg class="gi" aria-hidden="true"><use href="#g-bowl"/></svg></div>
-      <figcaption><b>A 2 L bowl or jug</b><span>Catches the dirty water</span></figcaption></figure>
+    <figure><div class="ph ic"><svg class="gi" aria-hidden="true"><use href="#g-towel"/></svg></div>
+      <figcaption><b>A towel</b><span>The drip tray can overflow</span></figcaption></figure>
   </div>
 
   <p class="note warn"><b>The machine must be ON.</b> The same button hold while it's off resets your shot sizes instead.</p>
@@ -207,7 +206,7 @@
   <h2>Steps <span class="prog" data-for="clean"></span></h2>
   <ol class="steps" data-key="clean">
     <li><b>Put the cleaning disc in the filter basket</b>, the tablet (or sachet powder) on top, and lock the handle into the machine.</li>
-    <li><b>Empty the drip tray</b> and put it back. Set the bowl under the handle and the steam wand.</li>
+    <li><b>Empty the drip tray and push it all the way in.</b> Most of the dirty water squirts into it, so lay the towel under the front of the machine. The manual also puts a 2 L container on the tray, but owners say it barely catches anything.</li>
     <li><b>Fill the water tank to MAX</b> and push it down firmly.</li>
     <li><b>Hold <kbd>1 CUP</kbd> + <kbd>2 CUP</kbd> for 5 s.</b> Both stay lit.
       <div class="bp" data-m="plus" data-state="1:on,2:on" data-press="1:HOLD,2:HOLD"></div>
@@ -215,7 +214,7 @@
     <li><b>Press <kbd>1 CUP</kbd> or <kbd>2 CUP</kbd> once</b> to start. They take turns flashing while it runs.
       <div class="bp" data-m="plus" data-state="1:fa,2:fb"></div>
     </li>
-    <li><b>When the lights go back to normal, it's done.</b> Rinse the handle, disc, drip tray and bowl. Tablet still there? Run it again.</li>
+    <li><b>When the lights go back to normal, it's done.</b> Empty and rinse the drip tray, then rinse the handle and disc. Tablet still there? Run it again.</li>
   </ol>
 
   <details>
@@ -246,7 +245,7 @@
 
   <h2>You need</h2>
   <div class="need">
-    <figure><div class="ph"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" loading="lazy"></div>
+    <figure><div class="ph zoom"><img src="img/descaler-breville.jpg" data-sage="img/descaler-sage.webp" alt="Machine Descaler sachet" data-cap="Descaler sachet" loading="lazy"></div>
       <figcaption><b>1 sachet of descaler</b><span>Not a cleaning tablet. <a href="#supplies">What's the difference?</a></span></figcaption></figure>
     <figure><div class="ph ic"><svg class="gi" aria-hidden="true"><use href="#g-bowl"/></svg></div>
       <figcaption><b>A 2 L bowl or jug</b><span>Catches the waste water</span></figcaption></figure>
@@ -255,6 +254,7 @@
   </div>
 
   <p class="note warn"><b>Don't take out or fully empty the tank mid-cycle,</b> and keep the drip tray in. Hot steam can escape.</p>
+  <p class="note" data-only="plus"><b>Both cleaning and descale due?</b> Descale first, rinse the tank, then run the cleaning cycle with fresh water.</p>
 
   <h2 data-only="plus">Steps <span class="prog" data-for="descale-plus"></span></h2>
   <ol class="steps" data-key="descale-plus" data-only="plus">

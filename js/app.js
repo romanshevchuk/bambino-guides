@@ -25,6 +25,20 @@
   var langs=(navigator.languages||[navigator.language||'']).join(' ');
   if(/-(GB|IE|DE|AT|CH|FR|NL|BE|LU|IT|ES|PT|PL|CZ|SE|DK|FI|NO|AU|NZ)/i.test(langs)) document.querySelectorAll('img[data-sage]').forEach(function(i){i.src=i.dataset.sage;});
 
+  /* --- Product pictures: a big popup on hover, tap or focus (after the Sage swap so it copies the right image) --- */
+  var zooms=[].slice.call(document.querySelectorAll('.zoom'));
+  zooms.forEach(function(z){
+    var pop=document.createElement('span');pop.className='pop';pop.setAttribute('aria-hidden','true');
+    z.querySelectorAll('img').forEach(function(i){
+      var c=document.createElement('img');c.src=i.src;c.alt='';pop.appendChild(c);
+      if(i.dataset.cap){var t=document.createElement('span');t.textContent=i.dataset.cap;pop.appendChild(t);}
+    });
+    z.appendChild(pop);
+    if(z.tagName!=='BUTTON'){z.tabIndex=0;z.setAttribute('role','button');z.setAttribute('aria-label','Show a bigger picture');}
+    z.addEventListener('click',function(){var on=!z.classList.contains('open');zooms.forEach(function(o){o.classList.remove('open');});z.classList.toggle('open',on);});
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.zoom'))zooms.forEach(function(o){o.classList.remove('open');});});
+
   /* --- Model: ?m= link > saved choice > Plus --- */
   var params=new URLSearchParams(location.search);
   var fromUrl=params.get('m'), model=MODELS[fromUrl]?fromUrl:store('bp-model');
@@ -57,17 +71,20 @@
   });
 
   /* --- Views: one topic per screen, picked by the URL hash --- */
-  var views=[].slice.call(document.querySelectorAll('.view')), home=document.getElementById('home'), cur=null, homeY=0;
+  /* trail = views opened since home, so Back returns to where you came from (and its scroll spot) */
+  var views=[].slice.call(document.querySelectorAll('.view')), home=document.getElementById('home'), cur=null, trail=[], ypos={};
   function route(){
     var id=decodeURIComponent(location.hash.slice(1)), t=id&&document.getElementById(id), v=t&&t.closest('.view');
     if(!v||(v.dataset.only&&v.dataset.only!==model)) v=home;
-    if(cur===home&&v!==home) homeY=window.scrollY;
-    var prev=cur; cur=v;
+    var back=v===home||trail.indexOf(v.id)>-1, prev=cur; cur=v;
+    if(v===home) trail=[]; else if(trail.indexOf(v.id)>-1) trail.length=trail.indexOf(v.id)+1; else trail.push(v.id);
+    var bl=v.querySelector('.back');
+    if(bl){var up=trail.length>1?document.getElementById(trail[trail.length-2]):home;bl.href='#'+up.id;bl.textContent=up===home?'All lights':up.querySelector('h1').innerText.trim();}
     views.forEach(function(x){x.hidden=x!==v;});
     var h=v.querySelector('h1');
     document.title=v===home?'What does my '+NAME[model]+' want?':h.innerText.trim()+' · '+NAME[model];
     if(t&&t!==v){if(t.tagName==='DETAILS')t.open=true;t.scrollIntoView();}
-    else if(prev!==v) window.scrollTo(0,v===home?homeY:0);
+    else if(prev!==v) window.scrollTo(0,back?ypos[v.id]||0:0);
     keepAwake(!!v.querySelector('ol.steps'));
   }
 
@@ -81,6 +98,8 @@
   }
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&wantAwake)keepAwake(true);});
   window.addEventListener('hashchange',route);
+  /* save the scroll spot on click: the browser's own anchor jump runs before hashchange */
+  document.addEventListener('click',function(e){if(cur&&e.target.closest('a[href^="#"]'))ypos[cur.id]=window.scrollY;},true);
 
   function setModel(m,chosen){
     model=m; body.dataset.model=m; store('bp-model',m);
@@ -99,7 +118,7 @@
   function openMenu(on){mmMenu.hidden=!on;mmBtn.setAttribute('aria-expanded',on);}
   mmBtn.addEventListener('click',function(){openMenu(mmMenu.hidden);});
   document.addEventListener('click',function(e){if(!mmMenu.hidden&&!e.target.closest('.mm'))openMenu(false);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mmMenu.hidden){openMenu(false);mmBtn.focus();}});
+  document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;zooms.forEach(function(o){o.classList.remove('open');});if(!mmMenu.hidden){openMenu(false);mmBtn.focus();}});
 
   setModel(model);
 })();
