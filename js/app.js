@@ -99,7 +99,7 @@
       items.forEach(function(li){li.classList.toggle('next',n>0&&li===next);});
       var fin=document.querySelector('.fin[data-for="'+key+'"]'); if(fin) fin.hidden=!(n&&n===vis.length);
       if(!prog) return;
-      prog.innerHTML=n?(n===vis.length?'All done · ':n+' of '+vis.length+' · ')+'<button type="button">Reset</button>':'tap each step when it’s done';
+      prog.innerHTML=n?(n===vis.length?'All done · ':n+' of '+vis.length+' · ')+'<button type="button">Reset</button>':'tap each step when it’s done<span class="aw"> · screen stays on</span>';
       var b=prog.querySelector('button'); if(b) b.onclick=function(){done=[];save();};
     }
     items.forEach(function(li,i){
@@ -149,7 +149,7 @@
   function keepAwake(on){
     wantAwake=on;
     if(!('wakeLock' in navigator)) return;
-    if(on&&!lock) navigator.wakeLock.request('screen').then(function(l){lock=l;l.addEventListener('release',function(){lock=null;});}).catch(function(){});
+    if(on&&!lock) navigator.wakeLock.request('screen').then(function(l){lock=l;body.classList.add('awake');l.addEventListener('release',function(){lock=null;body.classList.remove('awake');});}).catch(function(){});
     else if(!on&&lock) lock.release();
   }
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&wantAwake)keepAwake(true);});
@@ -175,6 +175,16 @@
   }
   document.querySelectorAll('[data-set-model]').forEach(function(b){b.addEventListener('click',function(){setModel(b.dataset.setModel,true);});});
   document.querySelector('.mm-ok').addEventListener('click',function(){setModel(model,true);});
+
+  /* --- Colours: device / light / dark, remembered; the head script applies it before first paint --- */
+  var root=document.documentElement;
+  function setTheme(t){
+    if(t==='light'||t==='dark') root.dataset.theme=t; else delete root.dataset.theme;
+    store('bp-theme',t);
+    document.querySelectorAll('[data-theme-set]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.themeSet===t);});
+  }
+  document.querySelectorAll('[data-theme-set]').forEach(function(b){b.addEventListener('click',function(){setTheme(b.dataset.themeSet);});});
+  setTheme(root.dataset.theme||'system');
 
   /* --- Machine menu under the heading --- */
   function openMenu(on){mmMenu.hidden=!on;mmBtn.setAttribute('aria-expanded',on);}

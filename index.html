@@ -8,7 +8,18 @@
 <meta property="og:title" content="What does my Bambino want?">
 <meta property="og:description" content="Match the flashing lights, get the buttons to press and the tablet or powder to use.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#e1e5e9">
+<meta property="og:url" content="https://romanshevchuk.github.io/what-my-bambino-wants/">
+<meta property="og:image" content="https://romanshevchuk.github.io/what-my-bambino-wants/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A Bambino Plus button panel with 1 CUP lit, next to the title What does my Bambino want?">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#e1e5e9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1012" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script>try{var t=localStorage.getItem('bp-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400&display=swap">
@@ -196,7 +207,8 @@
     <div class="bp" data-m="plus" data-state="1:fa,2:fb" aria-hidden="true"></div>
     <div><p>Due when <b>1 CUP and 2 CUP take turns flashing</b>, about every 200 shots.</p>
     <p class="aside">Rinses with the <kbd>1 CUP</kbd> button <span class="tq" tabindex="0" data-tip="Likely, not confirmed. The manual has you rinse with 1 CUP, the same button as a shot, and the machine can't see whether there's coffee in the handle.">may count too</span>, so if you rinse before or after each shot, it can come round sooner.</p>
-    <p>Takes <b>about 5 min</b>.</p></div>
+    <p>Takes <b>about 5 min</b>.</p>
+    <p class="last" data-last="clean" hidden></p></div>
   </div>
 
   <h2>You need</h2>
@@ -286,8 +298,11 @@
     <div class="bp" data-m="plus" data-only="plus" data-state="1:fa,2:fb,s:fa" aria-hidden="true"></div>
     <div class="bp" data-m="bambino" data-only="bambino" data-state="2:fa" aria-hidden="true"></div>
     <div data-only="plus"><p>Due when <b>1 CUP + STEAM take turns with 2 CUP</b>.</p>
-    <p>Takes <b>about 25 min</b>. Just made coffee? Add up to 20&nbsp;min for it to cool first.</p></div>
-    <p data-only="bambino">Due when <b>2 CUP keeps flashing</b>.<br>Takes <b>about 25 min</b>.</p>
+    <p>Takes <b>about 25 min</b>. Just made coffee? Add up to 20&nbsp;min for it to cool first.</p>
+    <p class="last" data-last="descale-plus" hidden></p></div>
+    <div data-only="bambino"><p>Due when <b>2 CUP keeps flashing</b>.</p>
+    <p>Takes <b>about 25 min</b>.</p>
+    <p class="last" data-last="descale-bambino" hidden></p></div>
   </div>
 
   <h2>You need</h2>
@@ -321,7 +336,7 @@
     <li><b>When <kbd>1 CUP</kbd> and <kbd>STEAM</kbd> light up again, press either one</b> to start the rinse.</li>
     <li><b>Done when the lights go out</b> (standby). Empty the bowl, rinse and dry the tray and tank, put the filter back.</li>
   </ol>
-  <p class="fin" data-for="descale-plus" data-only="plus" hidden>All done. Back to coffee.</p>
+  <p class="fin" data-for="descale-plus" data-only="plus" hidden>All done. Back to coffee. <span>Cleaning light flashing too? <a href="#clean">Cleaning steps</a></span></p>
 
   <h2 data-only="bambino">Steps <span class="prog" data-for="descale-bambino"></span></h2>
   <p class="lede" data-only="bambino">You're only needed at the start, once halfway to refill, and at the end.</p>
@@ -384,7 +399,13 @@
 <footer class="foot">
   <p><b>Sources.</b> Manuals (PDF): <a href="https://assets.breville.com/BES500/BES500_USCM_IB_X25_LR.pdf">Bambino Plus BES500</a> · <a href="https://assets.breville.com/BES450/BES450_USCM_IB_M26_LR.pdf">Bambino BES450</a>. Videos: <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-cleaning-cycle">Plus cleaning cycle</a> · <a href="https://www.sageappliances.com/inspiration/en-gb/tutorials/the-bambino-plus/cleaning-guides/how-to-perform-a-descale">Plus descale</a> · <a href="https://www.breville.com/en-us/my-products/producthub/bes450/cleaning-guides/how-to-perform-a-descale">Bambino descale</a>. Support: <a href="https://www.breville.com/en-us/support/article/ka0QU000002WDFVYA4">Breville on descalers</a>.</p>
   <p>Spotted a mistake, or your machine behaves differently? <a href="https://github.com/romanshevchuk/what-my-bambino-wants/issues">Tell us on GitHub</a>.</p>
-  <p>Unofficial fan guide, not affiliated with Breville or Sage. Checked October 2026.</p>
+  <div class="foot-end"><p>Unofficial fan guide, not affiliated with Breville or Sage. Checked October 2026.</p>
+    <div class="theme" role="group" aria-label="Colours">
+      <button type="button" data-theme-set="system" aria-label="Match my device" title="Match my device"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"/></svg></button>
+      <button type="button" data-theme-set="light" aria-label="Light" title="Light"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
+      <button type="button" data-theme-set="dark" aria-label="Dark" title="Dark"><svg viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/></svg></button>
+    </div>
+  </div>
 </footer>
 
 <script src="js/app.js"></script>

@@ -194,7 +194,7 @@ body:not(.unpicked) .mm-hint{display:none}
 .need figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;min-width:0}
 .need .ph{border-radius:11px 11px 0 0;background:#fff;height:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px;border-bottom:1px solid var(--line)}
 /* icon tiles sit on white like the photo tiles, so the row reads as one set */
-.need .ph.ic{color:color-mix(in srgb,var(--muted) 75%,var(--surface))}
+.need .ph.ic{background:var(--surface);color:color-mix(in srgb,var(--muted) 75%,var(--surface))}
 .need .ph.ic .gi{width:52px;height:52px}
 .need img,.vs img{max-width:100%;max-height:72px;object-fit:contain}
 .need img.strip,.vs img.strip{max-height:18px}
@@ -276,6 +276,10 @@ figure.baskets .pick{color:var(--ok);font-weight:700}
 /* Under "Steps": how much of it is really you; and a friendly finish once all are ticked */
 .lede{color:var(--muted);font-size:.95rem;margin-top:-8px}
 .fin{background:var(--ok-soft);color:var(--ok);font-weight:700;text-align:center;padding:12px 16px;border-radius:12px}
+.fin span{display:block;margin-top:2px;font-weight:400;color:var(--fg);font-size:.94rem}
+.aw{display:none}
+body.awake .aw{display:inline}
+.signal .last{font-size:.85rem;color:var(--muted)}
 
 /* Questions: one quiet list after the steps, so the page doesn't look like twice the work */
 .faq{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
@@ -317,6 +321,12 @@ details .body ul,details .body ol{margin:0;padding-left:1.3rem;display:flex;flex
 /* Footer */
 .foot{margin-top:40px;padding-top:18px;padding-bottom:40px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted);display:flex;flex-direction:column;gap:10px}
 .foot b{color:var(--fg)}
+.foot-end{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.theme{display:inline-flex;gap:2px;padding:2px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.theme button{width:30px;height:26px;padding:0;border:0;border-radius:999px;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.theme button:hover{color:var(--fg)}
+.theme button[aria-pressed="true"]{background:var(--sunk);color:var(--fg)}
+.theme svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* ===== Machine control panel drawing ===== */
 .bp{
