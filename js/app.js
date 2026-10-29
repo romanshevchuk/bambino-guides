@@ -30,6 +30,15 @@
     h.before(row);row.append(h,u);
   });
 
+  /* --- Caveat tooltips: nudge left when the bubble would run off the right edge --- */
+  document.querySelectorAll('.tq').forEach(function(q){
+    function fit(){
+      var w=Math.min(250,innerWidth*.7), over=q.getBoundingClientRect().left-6+w-(document.documentElement.clientWidth-12);
+      q.style.setProperty('--tx',(over>0?-over:0)+'px');
+    }
+    q.addEventListener('mouseenter',fit);q.addEventListener('focus',fit);
+  });
+
   /* --- Sage packaging for UK / Europe visitors --- */
   var langs=(navigator.languages||[navigator.language||'']).join(' ');
   if(/-(GB|IE|DE|AT|CH|FR|NL|BE|LU|IT|ES|PT|PL|CZ|SE|DK|FI|NO|AU|NZ)/i.test(langs)) document.querySelectorAll('img[data-sage]').forEach(function(i){i.src=i.dataset.sage;});
@@ -149,6 +158,8 @@
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a||!cur) return;
     ypos[cur.id]=window.scrollY; fwd=a.classList.contains('back')?0:Date.now();
+    /* same hash again fires no hashchange: run route so the target still opens and flashes */
+    if(a.getAttribute('href')===location.hash) setTimeout(route,0);
   },true);
 
   function setModel(m,chosen){
