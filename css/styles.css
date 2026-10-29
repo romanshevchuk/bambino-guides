@@ -184,6 +184,7 @@ body:not(.unpicked) .mm-hint{display:none}
 .signal>div:not(.bp){flex:1 1 220px;display:flex;flex-direction:column;gap:4px}
 .signal p{font-size:.98rem;text-wrap:pretty}
 .signal>p{flex:1 1 220px}
+.signal .aside{font-size:.88rem;color:var(--muted)}
 
 /* "You need" */
 .need{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
