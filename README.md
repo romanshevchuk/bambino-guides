@@ -17,7 +17,7 @@ Spotted a mistake, or does your machine behave differently? [Open an issue](http
 
 ## Run locally
 
-A static site with no build step. Serve the folder and open it, for example:
+A static site. Edit `_index.html`, run `python tools/pages.py` to build the pages, then serve the folder, for example:
 
 ```
 python -m http.server 8765
@@ -27,7 +27,8 @@ then visit http://localhost:8765/.
 
 ## Structure
 
-- `index.html`: the pages and guide content
+- `_index.html`: all guide content (source, not published)
+- `tools/pages.py`: builds `index.html` and the task pages (`clean/`, `descale/`, `steam/`, `supplies/`), one topic each, plus `sitemap.xml`
 - `css/styles.css`: styles
 - `js/app.js`: navigation, model switching, step progress, theme
 - `img/`: product photos, icons, link preview image

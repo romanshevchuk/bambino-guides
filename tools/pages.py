@@ -1,6 +1,9 @@
-"""Task pages for search: clean/, descale/, steam/, supplies/ are copies of index.html
-with their own title, description and address, opening on their own view (body data-page).
-Edit index.html only, then run:  python tools/pages.py"""
+"""Builds the published pages from _index.html (the hand-edited source, with every view in it).
+index.html gets the home view, clean/ descale/ steam/ supplies/ get their own view only, with their
+own title, description and address, so each page is one topic to a search engine. app.js fetches
+the other views from their pages when someone opens them. Also rewrites sitemap.xml.
+_index.html isn't published: GitHub Pages (Jekyll) skips files starting with _.
+Edit _index.html only, then run:  python tools/pages.py"""
 import html, pathlib, re, datetime
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -15,35 +18,41 @@ PAGES = {
     'supplies': ('Bambino cleaning tablets vs descaler: which one you need',
                  'Cleaning tablets and descaler do different jobs on a Breville / Sage Bambino or Bambino Plus. Which one your light is asking for, and where each one goes.'),
 }
+VIEW = re.compile(r'(?:<!-- =+ [A-Z ]+ =+ -->\n)?<section class="view" id="([a-z]+)".*?</section>\n*', re.S)
+NOTE = '<!-- Made from _index.html by tools/pages.py. Edit _index.html, then rerun. -->\n'
 
 def sub1(pat, new, s):
     s, n = re.subn(pat, lambda m: m.group(1) + new, s, count=1)
     assert n == 1, pat
     return s
 
-src = (ROOT / 'index.html').read_text(encoding='utf-8')
+def only(view, s):
+    """Keep one view, drop the others."""
+    ids = VIEW.findall(s)
+    assert view in ids and len(ids) == len(PAGES) + 1, ids
+    return VIEW.sub(lambda m: m.group(0) if m.group(1) == view else '', s)
+
+def write(path, s):
+    path.parent.mkdir(exist_ok=True)
+    path.write_text(s.replace('<html', NOTE + '<html', 1), encoding='utf-8', newline='\n')
+
+src = (ROOT / '_index.html').read_text(encoding='utf-8')
+write(ROOT / 'index.html', only('home', src))
 for view, (title, desc) in PAGES.items():
-    assert f'id="{view}"' in src, view
-    s = sub1(r'(<title>)[^<]*', html.escape(title, quote=False), src)
+    s = only(view, src)
+    s = sub1(r'(<title>)[^<]*', html.escape(title, quote=False), s)
     s = sub1(r'(<meta name="description" content=")[^"]*', html.escape(desc), s)
     s = sub1(r'(<meta property="og:title" content=")[^"]*', html.escape(title), s)
     s = sub1(r'(<meta property="og:description" content=")[^"]*', html.escape(desc), s)
     s = sub1(r'(<link rel="canonical" href=")[^"]*', BASE + view + '/', s)
     s = sub1(r'(<meta property="og:url" content=")[^"]*', BASE + view + '/', s)
     s = sub1(r'(<body )', f'data-page="{view}" ', s)
-    # one h1 per page: this view's title, not the home heading
-    s, n = re.subn(r'<h1 class="vt">(.*?)</h1>', r'<h2 class="vt">\1</h2>', s, flags=re.S)
-    assert n == 1
-    s, n = re.subn(r'(id="%s".*?)<h2 class="vt">(.*?)</h2>' % view, r'\1<h1 class="vt">\2</h1>', s, count=1, flags=re.S)
-    assert n == 1
     # one folder down: local files and the footer page links need ../
     s = re.sub(r'((?:href|src|data-sage)=")(?=(?:css|js|img)/|manifest\.webmanifest|\./"|(?:%s)/")' % '|'.join(PAGES), r'\1../', s)
     s = s.replace('href=".././"', 'href="../"')
-    s = s.replace('<html', '<!-- Made from index.html by tools/pages.py. Edit index.html, then rerun. -->\n<html', 1)
-    (ROOT / view).mkdir(exist_ok=True)
-    (ROOT / view / 'index.html').write_text(s, encoding='utf-8', newline='\n')
+    write(ROOT / view / 'index.html', s)
 
 today = datetime.date.today().isoformat()
 urls = ''.join(f'  <url><loc>{BASE}{p}</loc><lastmod>{today}</lastmod></url>\n' for p in [''] + [v + '/' for v in PAGES])
 (ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n', encoding='utf-8', newline='\n')
-print('made', ', '.join(v + '/' for v in PAGES), '+ sitemap.xml')
+print('made index.html,', ', '.join(v + '/' for v in PAGES), '+ sitemap.xml')
