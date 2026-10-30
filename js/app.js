@@ -61,6 +61,11 @@
   var params=new URLSearchParams(location.search);
   var fromUrl=params.get('m'), model=MODELS[fromUrl]?fromUrl:store('bp-model');
   if(!MODELS[model]) model='plus';
+  /* task pages (clean/, descale/ ...) open on their own view; landing on a Plus-only one means it's a Plus */
+  var page=document.getElementById(body.dataset.page||'home'), ownTitle=document.title;
+  /* views with their own page (same list as tools/pages.py); the address bar always shows the open view's page */
+  var OWN={clean:1,descale:1,steam:1,supplies:1}, base=new URL(body.dataset.page?'../':'./',location.href).pathname;
+  if(!MODELS[fromUrl]&&page.dataset.only) model=page.dataset.only;
   var picked=MODELS[fromUrl]||store('bp-picked')==='1';
 
   /* --- "Last done" under a card's button: written only when every step of that job was ticked --- */
@@ -122,8 +127,11 @@
   });
   function route(){
     ax=px;ay=py;body.classList.add('still');
-    var id=decodeURIComponent(location.hash.slice(1)), t=id&&document.getElementById(id), v=t&&t.closest('.view');
+    var id=decodeURIComponent(location.hash.slice(1)), seg=location.pathname.slice(base.length).split('/')[0], t=id&&document.getElementById(id);
+    var v=id?t&&t.closest('.view'):OWN[seg]?document.getElementById(seg):home;
     if(!v||(v.dataset.only&&v.dataset.only!==model)) v=home;
+    /* #descale becomes descale/, a target inside a view keeps its hash (clean/#baskets) */
+    history.replaceState(null,'',(v===home?base:base+v.id+'/')+location.search+(t&&t!==v?'#'+id:''));
     /* a link inside a page always goes forward, even to a page already in the trail (Cleaning cycle -> Tablet or descaler? -> Cleaning cycle);
        the Back link and the browser's back button walk the trail */
     var at=trail.lastIndexOf(v.id), prev=cur, back=v===home||(Date.now()-fwd>800&&at>-1); cur=v;
@@ -134,7 +142,10 @@
     if(bl){var up=trail.length>1?document.getElementById(trail[trail.length-2]):home;bl.href='#'+up.id;bl.textContent=up===home?'All lights':up.querySelector('h1').innerText.trim();}
     views.forEach(function(x){x.hidden=x!==v;});
     var h=v.querySelector('h1');
-    document.title=v===home?'What does my '+NAME[model]+' want? Breville / Sage lights explained':h.innerText.trim()+' · '+NAME[model];
+    /* the page's own view keeps the title search engines see */
+    document.title=v===page?ownTitle:v===home?'What does my '+NAME[model]+' want?':h.innerText.trim()+' · '+NAME[model];
+    /* GoatCounter counts the page load itself; views opened after it are counted here */
+    if(prev&&prev!==v&&window.goatcounter&&goatcounter.count) goatcounter.count({path:location.pathname,title:document.title});
     if(t&&t!==v){
       if(t.tagName==='DETAILS')t.open=true;
       /* a target near the page end can't reach the top, so flash it to show where to look */
@@ -153,12 +164,13 @@
     else if(!on&&lock) lock.release();
   }
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&wantAwake)keepAwake(true);});
-  window.addEventListener('hashchange',route);
-  /* save the scroll spot on click: the browser's own anchor jump runs before hashchange */
+  /* popstate, not hashchange: Back between descale/ and clean/ changes the path, not the hash */
+  window.addEventListener('popstate',route);
+  /* save the scroll spot on click: the browser's own anchor jump runs before popstate */
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="#"]'); if(!a||!cur) return;
     ypos[cur.id]=window.scrollY; fwd=a.classList.contains('back')?0:Date.now();
-    /* same hash again fires no hashchange: run route so the target still opens and flashes */
+    /* same hash again fires no popstate: run route so the target still opens and flashes */
     if(a.getAttribute('href')===location.hash) setTimeout(route,0);
   },true);
 
