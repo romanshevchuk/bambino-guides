@@ -63,7 +63,8 @@
       zooms.push(z);
       var pop=document.createElement('span');pop.className='pop';pop.setAttribute('aria-hidden','true');
       z.querySelectorAll('img').forEach(function(i){
-        var c=document.createElement('img');c.src=i.src;c.alt='';pop.appendChild(c);
+        /* the popup is aria-hidden; the alt is for crawlers, which flag empty ones */
+        var c=document.createElement('img');c.src=i.src;c.alt=i.alt;pop.appendChild(c);
         if(i.dataset.cap){var t=document.createElement('span');t.textContent=i.dataset.cap;pop.appendChild(t);}
       });
       z.appendChild(pop);
