@@ -10,7 +10,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASE = 'https://romanshevchuk.github.io/what-my-bambino-wants/'
 PAGES = {
     'clean': ('Bambino Plus cleaning cycle: 1 CUP and 2 CUP flashing',
-              "1 CUP and 2 CUP blinking in turn (alternating) on your Breville / Sage Bambino Plus? It's asking for a cleaning cycle. What you need and each step."),
+              "Two buttons, 1 CUP and 2 CUP, blinking in turn on your Breville / Sage Bambino Plus? It's asking for a cleaning cycle. What you need and each step."),
     'descale': ('How to descale a Bambino or Bambino Plus, step by step',
                 'Descale light on your Breville / Sage Bambino Plus (1 CUP + STEAM alternating with 2 CUP) or Bambino (2 CUP keeps blinking)? What you need and each step.'),
     'steam': ('Bambino Plus steam wand blocked: milk lights flashing',
