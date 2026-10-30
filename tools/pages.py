@@ -7,11 +7,11 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASE = 'https://romanshevchuk.github.io/what-my-bambino-wants/'
 PAGES = {
     'clean': ('Bambino Plus cleaning cycle: 1 CUP and 2 CUP flashing',
-              "1 CUP and 2 CUP taking turns flashing on your Breville / Sage Bambino Plus? It's asking for a cleaning cycle. What you need and each step, about 5 minutes."),
+              "1 CUP and 2 CUP blinking in turn (alternating) on your Breville / Sage Bambino Plus? It's asking for a cleaning cycle. What you need and each step, about 5 minutes."),
     'descale': ('How to descale a Bambino or Bambino Plus, step by step',
-                'Descale light on your Breville / Sage Bambino Plus (1 CUP + STEAM taking turns with 2 CUP) or Bambino (2 CUP keeps flashing)? What you need and each step.'),
+                'Descale light on your Breville / Sage Bambino Plus (1 CUP + STEAM alternating with 2 CUP) or Bambino (2 CUP keeps blinking)? What you need and each step.'),
     'steam': ('Bambino Plus steam wand blocked: milk lights flashing',
-              'All the milk lights flashing and STEAM off on your Breville / Sage Bambino Plus? The steam wand tip is blocked. How to clear it, step by step.'),
+              'All the milk lights blinking and STEAM off on your Breville / Sage Bambino Plus? The steam wand tip is blocked. How to clear it, step by step.'),
     'supplies': ('Bambino cleaning tablets vs descaler: which one you need',
                  'Cleaning tablets and descaler do different jobs on a Breville / Sage Bambino or Bambino Plus. Which one your light is asking for, and where each one goes.'),
 }
