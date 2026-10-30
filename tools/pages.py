@@ -7,7 +7,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASE = 'https://romanshevchuk.github.io/what-my-bambino-wants/'
 PAGES = {
     'clean': ('Bambino Plus cleaning cycle: 1 CUP and 2 CUP flashing',
-              "1 CUP and 2 CUP blinking in turn (alternating) on your Breville / Sage Bambino Plus? It's asking for a cleaning cycle. What you need and each step, about 5 minutes."),
+              "1 CUP and 2 CUP blinking in turn (alternating) on your Breville / Sage Bambino Plus? It's asking for a cleaning cycle. What you need and each step."),
     'descale': ('How to descale a Bambino or Bambino Plus, step by step',
                 'Descale light on your Breville / Sage Bambino Plus (1 CUP + STEAM alternating with 2 CUP) or Bambino (2 CUP keeps blinking)? What you need and each step.'),
     'steam': ('Bambino Plus steam wand blocked: milk lights flashing',
@@ -31,6 +31,11 @@ for view, (title, desc) in PAGES.items():
     s = sub1(r'(<link rel="canonical" href=")[^"]*', BASE + view + '/', s)
     s = sub1(r'(<meta property="og:url" content=")[^"]*', BASE + view + '/', s)
     s = sub1(r'(<body )', f'data-page="{view}" ', s)
+    # one h1 per page: this view's title, not the home heading
+    s, n = re.subn(r'<h1 class="vt">(.*?)</h1>', r'<h2 class="vt">\1</h2>', s, flags=re.S)
+    assert n == 1
+    s, n = re.subn(r'(id="%s".*?)<h2 class="vt">(.*?)</h2>' % view, r'\1<h1 class="vt">\2</h1>', s, count=1, flags=re.S)
+    assert n == 1
     # one folder down: local files and the footer page links need ../
     s = re.sub(r'((?:href|src|data-sage)=")(?=(?:css|js|img)/|manifest\.webmanifest|\./"|(?:%s)/")' % '|'.join(PAGES), r'\1../', s)
     s = s.replace('href=".././"', 'href="../"')

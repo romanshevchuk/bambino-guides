@@ -139,9 +139,9 @@
     else if(v!==prev){if(back) trail.length=at+1; else trail.push(v.id);}
     fwd=0;
     var bl=v.querySelector('.back');
-    if(bl){var up=trail.length>1?document.getElementById(trail[trail.length-2]):home;bl.href='#'+up.id;bl.textContent=up===home?'All lights':up.querySelector('h1').innerText.trim();}
+    if(bl){var up=trail.length>1?document.getElementById(trail[trail.length-2]):home;bl.href='#'+up.id;bl.textContent=up===home?'All lights':up.querySelector('.vt').innerText.trim();}
     views.forEach(function(x){x.hidden=x!==v;});
-    var h=v.querySelector('h1');
+    var h=v.querySelector('.vt');
     /* the page's own view keeps the title search engines see */
     document.title=v===page?ownTitle:v===home?'What does my '+NAME[model]+' want?':h.innerText.trim()+' · '+NAME[model];
     /* GoatCounter counts the page load itself; views opened after it are counted here */

@@ -43,7 +43,8 @@
 html{scroll-padding-top:12px;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.55;overflow-x:hidden}
 h1,h2,h3{font-family:var(--font-head);font-stretch:87.5%;font-weight:800;line-height:1.1;margin:0;text-wrap:balance}
-h1{font-size:clamp(1.9rem,6.5vw,2.5rem);letter-spacing:-.01em}
+/* .vt = view title: an h1 only on the view its page is about (one h1 per page), h2 elsewhere */
+h1,.vt{font-size:clamp(1.9rem,6.5vw,2.5rem);letter-spacing:-.01em}
 h2{font-size:1.35rem}
 h3{font-size:1.25rem}
 p{margin:0}
@@ -81,7 +82,7 @@ body[data-model="bambino"] [data-only="plus"]{display:none!important}
 /* ===== Page ===== */
 main,.foot{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
 .view{display:flex;flex-direction:column;gap:16px;padding:32px 0 8px}
-.view>h2{margin-top:18px}
+.view>h2:not(.vt){margin-top:18px}
 /* Home gets the wide grid; step pages stay at a comfortable reading width */
 .view:not(#home){width:100%;max-width:688px;margin:0 auto}
 body:has(#home[hidden]) .foot{max-width:720px}
